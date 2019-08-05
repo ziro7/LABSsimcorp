@@ -17,36 +17,39 @@ namespace LABSsimcorp {
                     Battery = new Battery(100);
                     Keyboard = new Keyboard(false);
                     MicroPhone = new MicroPhone();
-                    Screen = new Screen(5, 100);
+                    Screen = new MonoChromeScreen(5, 100);
                     break;
                 case Model.Iphone7:
                     Battery = new Battery(120);
                     Keyboard = new Keyboard(false);
                     MicroPhone = new MicroPhone();
-                    Screen = new Screen(5.3, 120);
+                    Screen = new ColorfullScreen(5.3, 120);
                     break;
                 case Model.Iphone8:
                     Battery = new Battery(150);
                     Keyboard = new Keyboard(false);
                     MicroPhone = new MicroPhone();
-                    Screen = new Screen(5.5, 150);
+                    Screen = new OLEDScreen(5.5, 150);
                     break;
                 case Model.Iphone10:
                     Battery = new Battery(200);
                     Keyboard = new Keyboard(false);
                     MicroPhone = new MicroPhone();
-                    Screen = new Screen(6, 200);
+                    Screen = new RetinaScreen(6, 200);
                     break;
                 case Model.SamsungGalaxy10:
                     Battery = new Battery(200);
                     Keyboard = new Keyboard(false);
                     MicroPhone = new MicroPhone();
-                    Screen = new Screen(6.5, 250);
+                    Screen = new RetinaScreen(6.5, 250);
                     break;
                 default:
-                    throw NotImplementedException;
+                    Console.WriteLine("No such screen");
                     break;
             }
+        }
+        public void Show(IScreenImage image) {
+            Screen.Show(image);
         }
     }
 }

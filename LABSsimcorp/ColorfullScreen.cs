@@ -5,15 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class MonoChromeScreen : ScreenBase {
+    class ColorfullScreen : ScreenBase {
 
-        public MonoChromeScreen(double sizeInInches, int pixelCount) 
+        public ColorfullScreen(double sizeInInches, int pixelCount) 
             :base(sizeInInches,pixelCount) {
-       
-        }
 
+        }
         public override void Show(IScreenImage image) {
-            Console.WriteLine("Drawing a drawing on MonoChromeScreen - Black and White");
+            Console.WriteLine("Image in color - Colorfull Screen");
         }
     }
 }
