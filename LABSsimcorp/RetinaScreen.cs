@@ -14,5 +14,8 @@ namespace LABSsimcorp {
         public override void Show(IScreenImage image) {
             Console.WriteLine("Image in color - Retina Screen");
         }
+        public override void Show(IScreenImage image, int brightness) {
+            Console.WriteLine("Image in color - Retina Screen + brightness: " + brightness);
+        }
     }
 }

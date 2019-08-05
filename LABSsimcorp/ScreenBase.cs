@@ -15,6 +15,7 @@ namespace LABSsimcorp {
         }
 
         public abstract void Show(IScreenImage image);
+        public abstract void Show(IScreenImage image, int brightness);
 
     }
 }

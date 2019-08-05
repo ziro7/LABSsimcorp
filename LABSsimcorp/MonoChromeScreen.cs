@@ -15,5 +15,9 @@ namespace LABSsimcorp {
         public override void Show(IScreenImage image) {
             Console.WriteLine("Drawing a drawing on MonoChromeScreen - Black and White");
         }
+
+        public override void Show(IScreenImage image, int brightness) {
+            Console.WriteLine("Drawing a drawing on MonoChromeScreen - Black and White + brightness: " + brightness);
+        }
     }
 }

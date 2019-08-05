@@ -14,5 +14,9 @@ namespace LABSsimcorp {
         public override void Show(IScreenImage image) {
             Console.WriteLine("Image in color - Colorfull Screen");
         }
+
+        public override void Show(IScreenImage image, int brightness) {
+            Console.WriteLine("Image in color - Colorfull Screen + brightness: " + brightness);
+        }
     }
 }
