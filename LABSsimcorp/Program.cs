@@ -9,6 +9,8 @@ namespace LABSsimcorp {
         static void Main(string[] args) {
 
             var mobilePhone = new MobilePhone(Model.Iphone10);
+            Console.WriteLine(mobilePhone.GetDescription());
+            Console.ReadLine();
         }
     }
 }

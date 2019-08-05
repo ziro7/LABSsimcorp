@@ -18,5 +18,6 @@ namespace LABSsimcorp {
         public override void Show(IScreenImage image, int brightness) {
             Console.WriteLine("Image in color - OLED Screen + brightness: " + brightness);
         }
+        public override string ToString() => nameof(OLEDScreen);
     }
 }

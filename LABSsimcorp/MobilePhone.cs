@@ -51,5 +51,16 @@ namespace LABSsimcorp {
         public void Show(IScreenImage image) {
             Screen.Show(image);
         }
+
+        public void Show(IScreenImage image, int brightness) {
+            Screen.Show(image,brightness);
+        }
+
+        public string GetDescription() {
+            var descriptionBuilder = new StringBuilder();
+            descriptionBuilder.AppendLine($"Screen type: {Screen.ToString()}");
+            return descriptionBuilder.ToString();
+        }
+
     }
 }
