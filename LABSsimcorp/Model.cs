@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class Program {
-        static void Main(string[] args) {
-
-            var mobilePhone = new MobilePhone(Model.Iphone10);
-        }
+    public enum Model {
+        IPhone6,
+        Iphone7,
+        Iphone8,
+        Iphone10,
+        SamsungGalaxy10
     }
 }

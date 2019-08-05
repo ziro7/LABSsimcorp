@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class Program {
-        static void Main(string[] args) {
+    class Keyboard {
+        public bool IsPhysical { get; set; }
 
-            var mobilePhone = new MobilePhone(Model.Iphone10);
+        public Keyboard(bool isPhysical) {
+            IsPhysical = isPhysical;
         }
     }
 }

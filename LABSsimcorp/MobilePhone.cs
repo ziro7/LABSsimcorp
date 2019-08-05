@@ -1,0 +1,52 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LABSsimcorp {
+    class MobilePhone {
+        public Battery Battery { get; set; }
+        public Keyboard Keyboard { get; set; }
+        public MicroPhone MicroPhone { get; set; }
+        public Screen Screen { get; set; }
+
+        public MobilePhone(Model model) {
+            switch (model) {
+                case Model.IPhone6:
+                    Battery = new Battery(100);
+                    Keyboard = new Keyboard(false);
+                    MicroPhone = new MicroPhone();
+                    Screen = new Screen(5, 100);
+                    break;
+                case Model.Iphone7:
+                    Battery = new Battery(120);
+                    Keyboard = new Keyboard(false);
+                    MicroPhone = new MicroPhone();
+                    Screen = new Screen(5.3, 120);
+                    break;
+                case Model.Iphone8:
+                    Battery = new Battery(150);
+                    Keyboard = new Keyboard(false);
+                    MicroPhone = new MicroPhone();
+                    Screen = new Screen(5.5, 150);
+                    break;
+                case Model.Iphone10:
+                    Battery = new Battery(200);
+                    Keyboard = new Keyboard(false);
+                    MicroPhone = new MicroPhone();
+                    Screen = new Screen(6, 200);
+                    break;
+                case Model.SamsungGalaxy10:
+                    Battery = new Battery(200);
+                    Keyboard = new Keyboard(false);
+                    MicroPhone = new MicroPhone();
+                    Screen = new Screen(6.5, 250);
+                    break;
+                default:
+                    throw NotImplementedException;
+                    break;
+            }
+        }
+    }
+}

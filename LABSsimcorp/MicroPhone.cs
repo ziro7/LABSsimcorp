@@ -5,10 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class Program {
-        static void Main(string[] args) {
+    class MicroPhone {
 
-            var mobilePhone = new MobilePhone(Model.Iphone10);
-        }
     }
 }

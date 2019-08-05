@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class Program {
-        static void Main(string[] args) {
+    class Battery {
 
-            var mobilePhone = new MobilePhone(Model.Iphone10);
+        public double Size { get; set; }
+
+        public Battery(double size) {
+            Size = size;
         }
     }
 }
