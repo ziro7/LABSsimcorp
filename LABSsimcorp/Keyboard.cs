@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class Keyboard {
-        public bool IsPhysical { get; set; }
 
-        public Keyboard(bool isPhysical) {
-            IsPhysical = isPhysical;
+
+    class Keyboard {
+        public bool SupportEmoji { get; set; }
+
+        public Keyboard(bool supportEmoji) {
+            SupportEmoji = supportEmoji;
         }
     }
 }

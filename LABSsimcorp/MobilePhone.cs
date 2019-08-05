@@ -9,7 +9,7 @@ namespace LABSsimcorp {
         public Battery Battery { get; set; }
         public Keyboard Keyboard { get; set; }
         public MicroPhone MicroPhone { get; set; }
-        public Screen Screen { get; set; }
+        public ScreenBase Screen { get; set; }
 
         public MobilePhone(Model model) {
             switch (model) {
