@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LABSsimcorp", "LABSsimcorp\LABSsimcorp.csproj", "{C4244464-8769-40C6-B653-33A103D2D1C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileFormVersion", "MobileFormVersion\MobileFormVersion.csproj", "{5D2CBDAD-CB71-467F-89E8-AF78FA07190F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileClassLibrary", "MobileClassLibrary\MobileClassLibrary.csproj", "{65BC9B4A-1C3D-41E3-A914-7B6EF126461E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{C4244464-8769-40C6-B653-33A103D2D1C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4244464-8769-40C6-B653-33A103D2D1C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4244464-8769-40C6-B653-33A103D2D1C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D2CBDAD-CB71-467F-89E8-AF78FA07190F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D2CBDAD-CB71-467F-89E8-AF78FA07190F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D2CBDAD-CB71-467F-89E8-AF78FA07190F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D2CBDAD-CB71-467F-89E8-AF78FA07190F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65BC9B4A-1C3D-41E3-A914-7B6EF126461E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65BC9B4A-1C3D-41E3-A914-7B6EF126461E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65BC9B4A-1C3D-41E3-A914-7B6EF126461E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65BC9B4A-1C3D-41E3-A914-7B6EF126461E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
