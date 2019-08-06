@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class OLEDScreen : ColorfullScreen{
+    public class OLEDScreen : ColorfullScreen{
 
         public OLEDScreen(double sizeInInches, int pixelCount, IOutput output) 
             :base(sizeInInches,pixelCount, output) {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class MonoChromeScreen : ScreenBase {
+    public class MonoChromeScreen : ScreenBase {
 
         public MonoChromeScreen(double sizeInInches, int pixelCount, IOutput output) 
             :base(sizeInInches,pixelCount, output) {

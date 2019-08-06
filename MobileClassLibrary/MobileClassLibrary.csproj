@@ -40,7 +40,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Battery.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="ColorfullScreen.cs" />
     <Compile Include="Headphones.cs" />
     <Compile Include="IBluetoothConnect.cs" />

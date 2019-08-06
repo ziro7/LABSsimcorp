@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class MobilePhone {
+    public class MobilePhone {
         public Battery Battery { get; set; }
         public Keyboard Keyboard { get; set; }
         public MicroPhone MicroPhone { get; set; }

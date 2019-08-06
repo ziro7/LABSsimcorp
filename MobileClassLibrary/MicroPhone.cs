@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class MicroPhone {
+    public class MicroPhone {
 
     }
 }

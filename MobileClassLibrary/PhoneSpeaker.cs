@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class PhoneSpeaker : IPlayback {
+    public class PhoneSpeaker : IPlayback {
         public IOutput Output { get; set; }
 
         public PhoneSpeaker(IOutput output) {

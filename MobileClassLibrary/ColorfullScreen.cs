@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class ColorfullScreen : ScreenBase {
+    public class ColorfullScreen : ScreenBase {
 
         public ColorfullScreen(double sizeInInches, int pixelCount, IOutput output) 
             :base(sizeInInches,pixelCount, output) {

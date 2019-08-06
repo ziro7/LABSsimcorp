@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class Battery {
+    public class Battery {
 
         public double Size { get; set; }
 

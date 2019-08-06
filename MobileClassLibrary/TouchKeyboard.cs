@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class TouchKeyboard : Keyboard {
+    public class TouchKeyboard : Keyboard {
         public bool IsMultiTouch { get; set; }
 
         public TouchKeyboard(bool supportEmoji, bool isMultiTouch) 

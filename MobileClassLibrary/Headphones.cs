@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class Headphones : IPlayback {
+    public class Headphones : IPlayback {
 
         public IOutput Output { get; set; }
 

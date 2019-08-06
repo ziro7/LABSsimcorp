@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace LABSsimcorp {
-    class Speakers : IPlayback,IBluetoothConnect {
+    public class Speakers : IPlayback,IBluetoothConnect {
 
         public bool UseingBluetooth { get; set; }
         public IOutput Output { get; set; }
