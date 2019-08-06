@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LABSsimcorp {
     class PhoneSpeaker : IPlayback {
-        public void Play() {
+        public void Play(object data) {
             Console.WriteLine("Plays on the " + typeof(PhoneSpeaker));
         }
     }

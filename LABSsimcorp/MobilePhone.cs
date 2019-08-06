@@ -61,6 +61,10 @@ namespace LABSsimcorp {
             AudioInJackStik = playDevice;
         }
 
+        public void Play(object data) {
+            AudioInJackStik.Play(data);
+        }
+
         public string GetDescription() {
             var descriptionBuilder = new StringBuilder();
             descriptionBuilder.AppendLine($"Screen type: {Screen.ToString()}");

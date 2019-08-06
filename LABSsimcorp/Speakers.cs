@@ -20,7 +20,7 @@ namespace LABSsimcorp {
             Console.WriteLine("Bluetooth connected");
         }
 
-        public void Play() {
+        public void Play(object data) {
             Console.WriteLine("Plays on the " + typeof(Speakers));
         }
     }

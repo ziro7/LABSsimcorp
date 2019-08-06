@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace LABSsimcorp {
     public interface IPlayback {
 
-        void Play();
+        void Play(object data);
     }
 }
