@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileFormVersion", "Mobile
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileClassLibrary", "MobileClassLibrary\MobileClassLibrary.csproj", "{65BC9B4A-1C3D-41E3-A914-7B6EF126461E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileClassLibrary.UnitTests", "MobileClassLibrary.UnitTests\MobileClassLibrary.UnitTests.csproj", "{B2388639-C1A9-4F2F-A1B9-020893ECABE2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{65BC9B4A-1C3D-41E3-A914-7B6EF126461E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65BC9B4A-1C3D-41E3-A914-7B6EF126461E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65BC9B4A-1C3D-41E3-A914-7B6EF126461E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2388639-C1A9-4F2F-A1B9-020893ECABE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2388639-C1A9-4F2F-A1B9-020893ECABE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2388639-C1A9-4F2F-A1B9-020893ECABE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2388639-C1A9-4F2F-A1B9-020893ECABE2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
