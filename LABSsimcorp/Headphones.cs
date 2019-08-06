@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace LABSsimcorp {
     class Headphones : IPlayback {
+
+        public IOutput Output { get; set; }
+
+        public Headphones(IOutput output) {
+            Output = output;
+        }
         public void Play(object data) {
-            Console.WriteLine("Plays on the " + typeof(Headphones));
+            Output.WriteLine("Plays on the " + typeof(Headphones));
         }
     }
 }

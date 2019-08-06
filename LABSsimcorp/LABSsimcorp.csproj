@@ -45,8 +45,10 @@
   <ItemGroup>
     <Compile Include="Battery.cs" />
     <Compile Include="ColorfullScreen.cs" />
+    <Compile Include="ConsoleOutput.cs" />
     <Compile Include="Headphones.cs" />
     <Compile Include="IBluetoothConnect.cs" />
+    <Compile Include="IOutput.cs" />
     <Compile Include="IPlayback .cs" />
     <Compile Include="IScreenImage.cs" />
     <Compile Include="Keyboard.cs" />

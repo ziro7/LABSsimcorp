@@ -8,22 +8,23 @@ namespace LABSsimcorp {
     class Program {
         static void Main(string[] args) {
 
-            var mobilePhone = new MobilePhone(Model.Iphone10);
-            Console.WriteLine(mobilePhone.GetDescription());
+            var output = new ConsoleOutput();
+            var mobilePhone = new MobilePhone(Model.Iphone10, output);
+            output.WriteLine(mobilePhone.GetDescription());
 
-            Console.WriteLine("Select playback component attached in Jack Stick.");
-            Console.WriteLine("1 - Headphones");
-            Console.WriteLine("2 - Speakers");
-            Console.WriteLine("3 - PhoneSpeakers");
+            output.WriteLine("Select playback component attached in Jack Stick.");
+            output.WriteLine("1 - Headphones");
+            output.WriteLine("2 - Speakers");
+            output.WriteLine("3 - PhoneSpeakers");
             var choice = System.Convert.ToInt32(Console.ReadLine());
 
             IPlayback audioDevice;
             if (choice == 1) {
-                audioDevice = new Headphones();
+                audioDevice = new Headphones(output);
             } else if (choice == 2) {
-                audioDevice = new Speakers(false);
+                audioDevice = new Speakers(false, output);
             } else {
-                audioDevice = new PhoneSpeaker();
+                audioDevice = new PhoneSpeaker(output);
             }
 
             mobilePhone.InsertEquipmentInJackStick(audioDevice);

@@ -8,20 +8,22 @@ namespace LABSsimcorp {
     class Speakers : IPlayback,IBluetoothConnect {
 
         public bool UseingBluetooth { get; set; }
+        public IOutput Output { get; set; }
 
-        public Speakers(bool useingBluetooth) {
+        public Speakers(bool useingBluetooth, IOutput output) {
             UseingBluetooth = useingBluetooth;
+            Output = output;
             if (UseingBluetooth) {
                 Pairring();
             }
         }
 
         public void Pairring() {
-            Console.WriteLine("Bluetooth connected");
+            Output.WriteLine("Bluetooth connected");
         }
 
         public void Play(object data) {
-            Console.WriteLine("Plays on the " + typeof(Speakers));
+            Output.WriteLine("Plays on the " + typeof(Speakers));
         }
     }
 }

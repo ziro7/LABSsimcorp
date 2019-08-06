@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 namespace LABSsimcorp {
     class MonoChromeScreen : ScreenBase {
 
-        public MonoChromeScreen(double sizeInInches, int pixelCount) 
-            :base(sizeInInches,pixelCount) {
-       
+        public MonoChromeScreen(double sizeInInches, int pixelCount, IOutput output) 
+            :base(sizeInInches,pixelCount, output) {
+
         }
 
         public override void Show(IScreenImage image) {
-            Console.WriteLine("Drawing a drawing on MonoChromeScreen - Black and White");
+            Output.WriteLine("Drawing a drawing on MonoChromeScreen - Black and White");
         }
 
         public override void Show(IScreenImage image, int brightness) {
-            Console.WriteLine("Drawing a drawing on MonoChromeScreen - Black and White + brightness: " + brightness);
+            Output.WriteLine("Drawing a drawing on MonoChromeScreen - Black and White + brightness: " + brightness);
         }
 
         public override string ToString() => nameof(MonoChromeScreen);
