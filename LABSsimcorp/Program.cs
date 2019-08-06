@@ -10,6 +10,11 @@ namespace LABSsimcorp {
 
             var mobilePhone = new MobilePhone(Model.Iphone10);
             Console.WriteLine(mobilePhone.GetDescription());
+
+            var speakers = new Speakers(true);
+            mobilePhone.InsertEquipmentInJackStick(speakers);
+            mobilePhone.AudioInJackStik.Play();
+
             Console.ReadLine();
         }
     }

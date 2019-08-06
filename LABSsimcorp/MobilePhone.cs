@@ -10,6 +10,7 @@ namespace LABSsimcorp {
         public Keyboard Keyboard { get; set; }
         public MicroPhone MicroPhone { get; set; }
         public ScreenBase Screen { get; set; }
+        public IPlayback AudioInJackStik { get; set; }
 
         public MobilePhone(Model model) {
             switch (model) {
@@ -54,6 +55,10 @@ namespace LABSsimcorp {
 
         public void Show(IScreenImage image, int brightness) {
             Screen.Show(image,brightness);
+        }
+
+        public void InsertEquipmentInJackStick(IPlayback playDevice) {
+            AudioInJackStik = playDevice;
         }
 
         public string GetDescription() {
