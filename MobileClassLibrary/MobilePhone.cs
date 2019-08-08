@@ -12,10 +12,12 @@ namespace LABSsimcorp {
         public ScreenBase Screen { get; set; }
         public IPlayback AudioInJackStik { get; set; }
         public IOutput Output { get; set; }
+        public SMSProvider SMSProviderInstance { get; set; }
 
         public MobilePhone(Model model, IOutput outputChannel) {
             Output = outputChannel;
-
+            SMSProviderInstance = new SMSProvider();
+            SMSProviderInstance.OnSMSReceived += SMSReceivedHandler;
             switch (model) {
                 case Model.IPhone6:
                     Battery = new Battery(100);
@@ -51,8 +53,13 @@ namespace LABSsimcorp {
                     Output.WriteLine("No such screen");
                     break;
             }
-            
         }
+
+       
+       public void SMSReceivedHandler(string message) {
+            Output.WriteLine(message);
+        }
+
         public void Show(IScreenImage image) {
             Screen.Show(image);
         }
