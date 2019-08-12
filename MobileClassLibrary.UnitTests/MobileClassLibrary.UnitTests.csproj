@@ -53,11 +53,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="DelegateFormat.cs" />
     <Compile Include="FakeOutput.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="CreatePhone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DelegateMessageForm\DelegateMessageForm.csproj">
+      <Project>{fb7ec50b-a667-4491-a2db-5303bcd243c1}</Project>
+      <Name>DelegateMessageForm</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LABSsimcorp\LABSsimcorp.csproj">
       <Project>{c4244464-8769-40c6-b653-33a103d2d1c4}</Project>
       <Name>LABSsimcorp</Name>

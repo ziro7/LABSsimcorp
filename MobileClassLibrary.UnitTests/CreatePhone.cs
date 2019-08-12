@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MobileClassLibrary.UnitTests {
     [TestClass]
-    public class UnitTest1 {
+    public class CreatePhone {
         [TestMethod]
         public void CreatePhone_Headphones_OutputValidate() {
 
