@@ -20,7 +20,7 @@ namespace LABSsimcorp {
         }
 
         public void OnTickHandler(object sender, EventArgs e) {
-            string message = "{0} {1}";
+            var message = "Sms recieved at: {0} the following date: {1}";
             var messageFormat = string.Format(message, DateTime.Now.ToLongTimeString(),DateTime.Now.ToLongDateString());
             RaiseSMSReceivedEvent(messageFormat);            
         }

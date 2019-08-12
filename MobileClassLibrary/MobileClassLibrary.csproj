@@ -52,6 +52,7 @@
     <Compile Include="Model.cs" />
     <Compile Include="MonoChromeScreen.cs" />
     <Compile Include="OLEDScreen.cs" />
+    <Compile Include="OutputFormat.cs" />
     <Compile Include="PhoneSpeaker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RetinaScreen.cs" />

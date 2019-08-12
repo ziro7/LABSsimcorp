@@ -14,6 +14,10 @@ namespace LABSsimcorp {
         public IOutput Output { get; set; }
         public SMSProvider SMSProviderInstance { get; set; }
 
+        public delegate string FormatDelegate(string text);
+
+        private FormatDelegate Formatter = OutputFormat.FormatToUpper;
+
         public MobilePhone(Model model, IOutput outputChannel) {
             Output = outputChannel;
             SMSProviderInstance = new SMSProvider();
@@ -57,7 +61,12 @@ namespace LABSsimcorp {
 
        
        public void SMSReceivedHandler(string message) {
-            Output.WriteLine(message);
+            string formattedMessage = Formatter(message);
+            Output.WriteLine(formattedMessage);
+        }
+
+        public void ChangeFormat (FormatDelegate formatDelegate) {
+            Formatter = formatDelegate;
         }
 
         public void Show(IScreenImage image) {
