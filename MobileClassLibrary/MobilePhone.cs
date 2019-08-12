@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace LABSsimcorp {
     public class MobilePhone {
@@ -14,14 +10,10 @@ namespace LABSsimcorp {
         public IOutput Output { get; set; }
         public SMSProvider SMSProviderInstance { get; set; }
 
-        public delegate string FormatDelegate(string text);
-
-        private FormatDelegate Formatter = OutputFormat.FormatToUpper;
-
         public MobilePhone(Model model, IOutput outputChannel) {
             Output = outputChannel;
             SMSProviderInstance = new SMSProvider();
-            SMSProviderInstance.OnSMSReceived += SMSReceivedHandler;
+            AttachSMSRecievedHandler();
             switch (model) {
                 case Model.IPhone6:
                     Battery = new Battery(100);
@@ -59,8 +51,11 @@ namespace LABSsimcorp {
             }
         }
 
-       
-       public void SMSReceivedHandler(string message) {
+        private void AttachSMSRecievedHandler() {
+            SMSProviderInstance.OnSMSReceived += SMSReceivedHandler;
+        }
+
+        public void SMSReceivedHandler(string message) {
             string formattedMessage = Formatter(message);
             Output.WriteLine(formattedMessage);
         }
@@ -90,6 +85,10 @@ namespace LABSsimcorp {
             descriptionBuilder.AppendLine($"Screen type: {Screen.ToString()}");
             return descriptionBuilder.ToString();
         }
+
+        public delegate string FormatDelegate(string text);
+
+        private FormatDelegate Formatter = OutputFormat.FormatToUpper;
 
     }
 }

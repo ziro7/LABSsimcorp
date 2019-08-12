@@ -21,15 +21,19 @@ namespace DelegateMessageForm {
         }
 
         private void SendMessage() {
-            
+
             output = new LabelOutput(MessageBox);
             phone = new MobilePhone(Model.Iphone10, output);
 
             output.WriteLine("Starting Messages every 2 sec");
 
-            myTimer.Tick += phone.SMSProviderInstance.OnTickHandler;
+            AttachOnTickEventHandler();
             myTimer.Interval = 2000;
             myTimer.Start();
+        }
+
+        private void AttachOnTickEventHandler() {
+            myTimer.Tick += phone.SMSProviderInstance.OnTickHandler;
         }
 
         private void MessageBox_TextChanged(object sender, EventArgs e) {

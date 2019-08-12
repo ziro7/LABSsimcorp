@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using LABSsimcorp;
+﻿using LABSsimcorp;
 
-namespace MobileClassLibrary.UnitTests {
+namespace MobileClassLibrary.UnitTest {
     class FakeOutput : IOutput {
         public string WriteText { get; set; }
         public string WriteLineText { get; set; }

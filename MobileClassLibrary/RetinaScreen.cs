@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LABSsimcorp {
+﻿namespace LABSsimcorp {
     public class RetinaScreen : ColorfullScreen {
 
         public RetinaScreen(double sizeInInches, int pixelCount, IOutput output) 

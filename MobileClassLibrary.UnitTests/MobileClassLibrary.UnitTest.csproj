@@ -53,9 +53,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DelegateFormat.cs" />
+    <Compile Include="OutputFormatTest.cs" />
     <Compile Include="FakeOutput.cs" />
-    <Compile Include="CreatePhone.cs" />
+    <Compile Include="MobilePhoneTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

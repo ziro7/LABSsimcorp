@@ -1,12 +1,10 @@
-﻿using System;
-using System.Threading;
-using LABSsimcorp;
+﻿using LABSsimcorp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MobileClassLibrary.UnitTests {
+namespace MobileClassLibrary.UnitTest {
 
     [TestClass]
-    public class DelegateFormat {
+    public class OutputFormatTest {
 
         //setup
         FakeOutput output = new FakeOutput();

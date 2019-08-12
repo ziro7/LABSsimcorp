@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileFormVersion", "Mobile
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileClassLibrary", "MobileClassLibrary\MobileClassLibrary.csproj", "{65BC9B4A-1C3D-41E3-A914-7B6EF126461E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileClassLibrary.UnitTests", "MobileClassLibrary.UnitTests\MobileClassLibrary.UnitTests.csproj", "{B2388639-C1A9-4F2F-A1B9-020893ECABE2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileClassLibrary.UnitTest", "MobileClassLibrary.UnitTests\MobileClassLibrary.UnitTest.csproj", "{B2388639-C1A9-4F2F-A1B9-020893ECABE2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegateMessageForm", "DelegateMessageForm\DelegateMessageForm.csproj", "{FB7EC50B-A667-4491-A2DB-5303BCD243C1}"
 EndProject

@@ -1,10 +1,9 @@
-﻿using System;
-using LABSsimcorp;
+﻿using LABSsimcorp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MobileClassLibrary.UnitTests {
+namespace MobileClassLibrary.UnitTest {
     [TestClass]
-    public class CreatePhone {
+    public class MobilPhoneTest {
         [TestMethod]
         public void CreatePhone_Headphones_OutputValidate() {
 

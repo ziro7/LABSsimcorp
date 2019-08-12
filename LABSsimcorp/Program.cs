@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LABSsimcorp {
     class Program {
@@ -11,11 +7,12 @@ namespace LABSsimcorp {
             var output = new ConsoleOutput();
             var mobilePhone = new MobilePhone(Model.Iphone10, output);
             output.WriteLine(mobilePhone.GetDescription());
-
+     
             output.WriteLine("Select playback component attached in Jack Stick.");
             output.WriteLine("1 - Headphones");
             output.WriteLine("2 - Speakers");
             output.WriteLine("3 - PhoneSpeakers");
+
             var choice = System.Convert.ToInt32(Console.ReadLine());
 
             IPlayback audioDevice;
