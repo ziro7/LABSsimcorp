@@ -1,4 +1,6 @@
-﻿using LABSsimcorp;
+﻿using System;
+using LABSsimcorp;
+using LABSsimcorpy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MobileClassLibrary.UnitTest {
@@ -8,6 +10,7 @@ namespace MobileClassLibrary.UnitTest {
 
         //setup
         FakeOutput output = new FakeOutput();
+        User jacob = new User(1, "Jacob", 12341234);
 
         [TestMethod]
         public void SMSReceived_FormatDelegateCapitalize_OutputIsCapitalized() {
@@ -17,7 +20,7 @@ namespace MobileClassLibrary.UnitTest {
 
             //act
             mobile.ChangeFormat(OutputFormat.FormatToUpper);
-            mobile.SMSReceivedHandler("testMessage");
+            mobile.SMSReceivedHandler(this, new MessageEventArgs(new Message(jacob,"testMessage",DateTime.Now)));
 
             //assert
             string outputFromMobile = output.WriteLineText;
@@ -32,7 +35,7 @@ namespace MobileClassLibrary.UnitTest {
 
             //act
             mobile.ChangeFormat(OutputFormat.FormatToLower);
-            mobile.SMSReceivedHandler("testMessage");
+            mobile.SMSReceivedHandler(this, new MessageEventArgs(new Message(jacob, "testMessage", DateTime.Now)));
 
             //assert
             string outputFromMobile = output.WriteLineText;
@@ -47,7 +50,7 @@ namespace MobileClassLibrary.UnitTest {
             
             //act
             mobile.ChangeFormat(OutputFormat.FormatFunish);
-            mobile.SMSReceivedHandler("testMessage");
+            mobile.SMSReceivedHandler(this, new MessageEventArgs(new Message(jacob, "testMessage", DateTime.Now)));
 
             //assert
             string outputFromMobile = output.WriteLineText;

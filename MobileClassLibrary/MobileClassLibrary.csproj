@@ -47,6 +47,8 @@
     <Compile Include="IPlayback .cs" />
     <Compile Include="IScreenImage.cs" />
     <Compile Include="Keyboard.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="MessageEventArgs.cs" />
     <Compile Include="MicroPhone.cs" />
     <Compile Include="MobilePhone.cs" />
     <Compile Include="Model.cs" />
@@ -60,6 +62,7 @@
     <Compile Include="SMSProvider.cs" />
     <Compile Include="Speakers.cs" />
     <Compile Include="TouchKeyboard.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

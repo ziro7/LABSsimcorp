@@ -1,4 +1,7 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using LABSsimcorpy;
 
 namespace LABSsimcorp {
     public class MobilePhone {
@@ -8,11 +11,14 @@ namespace LABSsimcorp {
         public ScreenBase Screen { get; set; }
         public IPlayback AudioInJackStik { get; set; }
         public IOutput Output { get; set; }
+        public List<User> ContactList { get; set; }
         public SMSProvider SMSProviderInstance { get; set; }
+        
 
         public MobilePhone(Model model, IOutput outputChannel) {
+            ImportingOldContacts();
             Output = outputChannel;
-            SMSProviderInstance = new SMSProvider();
+            SMSProviderInstance = new SMSProvider(ContactList);
             AttachSMSRecievedHandler();
             switch (model) {
                 case Model.IPhone6:
@@ -51,12 +57,22 @@ namespace LABSsimcorp {
             }
         }
 
+        private void ImportingOldContacts() {
+            ContactList = new List<User>();
+            ContactList.Add(new User(1, "Jacob", 12341234));
+            ContactList.Add(new User(2, "Jens", 12341235));
+            ContactList.Add(new User(3, "Lennert", 12341236));
+            ContactList.Add(new User(4, "Anne", 12341237));
+            ContactList.Add(new User(5, "Sofie", 12341238));
+            ContactList.Add(new User(6, "Gurli", 12341239));
+        }
+
         private void AttachSMSRecievedHandler() {
             SMSProviderInstance.OnSMSReceived += SMSReceivedHandler;
         }
 
-        public void SMSReceivedHandler(string message) {
-            string formattedMessage = Formatter(message);
+        public void SMSReceivedHandler(Object sender, MessageEventArgs e) {
+            var formattedMessage = Formatter?.Invoke(e.Message.Text);
             Output.WriteLine(formattedMessage);
         }
 
