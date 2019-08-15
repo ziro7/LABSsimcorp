@@ -1,4 +1,4 @@
-﻿namespace LABSsimcorpy {
+﻿namespace LABSsimcorp {
     public class User {
 
         public int UserId { get; set; }

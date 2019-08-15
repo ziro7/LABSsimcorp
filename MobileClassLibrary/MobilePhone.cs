@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using LABSsimcorpy;
 
 namespace LABSsimcorp {
     public class MobilePhone {
@@ -13,14 +12,14 @@ namespace LABSsimcorp {
         public IPlayback AudioInJackStik { get; set; }
         public IOutput Output { get; set; }
         public List<User> ContactList { get; set; }
-        public SMSProvider SMSProviderInstance { get; set; }
-        public List<Message> messages { get; set; }
+        internal SMSProvider SMSProviderInstance { get; set; }
+        public MessageStorage messages { get; set; }
 
         public MobilePhone(Model model, IOutput outputChannel) {
             ImportingOldContacts();
             Output = outputChannel;
             SMSProviderInstance = new SMSProvider(ContactList);
-            messages = new List<Message>();
+            messages = new MessageStorage(ContactList);
             AttachSMSRecievedHandler();
             switch (model) {
                 case Model.IPhone6:
@@ -90,7 +89,7 @@ namespace LABSsimcorp {
 
         private List<Message> FilterMessages(Dictionary<FilterCheckBox, bool> filterDictionary, FilterValueDTO filterValueDTO) {
 
-            var filteredMessages = messages;
+            var filteredMessages = messages.MessagesList;
 
             if (filterDictionary[FilterCheckBox.User]) {
                 filteredMessages = filteredMessages

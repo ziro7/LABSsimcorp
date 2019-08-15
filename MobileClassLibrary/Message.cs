@@ -1,5 +1,4 @@
 ﻿using System;
-using LABSsimcorpy;
 
 namespace LABSsimcorp {
     public class Message {

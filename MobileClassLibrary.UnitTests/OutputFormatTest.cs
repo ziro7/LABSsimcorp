@@ -1,6 +1,5 @@
 ﻿using System;
 using LABSsimcorp;
-using LABSsimcorpy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MobileClassLibrary.UnitTest {

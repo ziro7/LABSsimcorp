@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using LABSsimcorp;
-using LABSsimcorpy;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MobileClassLibrary.UnitTest;
 

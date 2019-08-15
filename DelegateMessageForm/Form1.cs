@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using LABSsimcorp;
-using LABSsimcorpy;
 
 namespace DelegateMessageForm {
     public partial class Form1 : Form {
@@ -48,7 +47,7 @@ namespace DelegateMessageForm {
         }
 
         private void AttachOnTickEventHandler() {
-            myTimer.Tick += phone.SMSProviderInstance.OnTickHandler;
+            myTimer.Tick += phone.messages.OnTickHandler;
         }
 
         private void MessageBox_TextChanged(object sender, EventArgs e) {

@@ -54,6 +54,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="FakeDelegateMessageForm.cs" />
+    <Compile Include="MessageStorageTests.cs" />
     <Compile Include="MobilePhoneTests.cs" />
     <Compile Include="OutputFormatTest.cs" />
     <Compile Include="FakeOutput.cs" />

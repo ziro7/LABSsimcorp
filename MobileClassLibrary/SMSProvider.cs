@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using LABSsimcorpy;
 
 namespace LABSsimcorp {
-    public class SMSProvider {
+    internal class SMSProvider {
 
         public List<User> ContactList { get;  set; }
 
