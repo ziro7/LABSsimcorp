@@ -27,6 +27,7 @@ namespace MobileClassLibrary.UnitTests {
 
             //assert
             Assert.AreEqual(1, receivedEvents.Count);
+            Assert.AreEqual(1, messageStorage.MessagesList.Count);
         }
 
         [TestMethod]
@@ -48,6 +49,7 @@ namespace MobileClassLibrary.UnitTests {
 
             //assert
             Assert.AreEqual(1, receivedEvents.Count);
+            Assert.AreEqual(0, messageStorage.MessagesList.Count);
         }
     }
 }
