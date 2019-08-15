@@ -99,6 +99,7 @@
             this.UserFilterCheckBox.Size = new System.Drawing.Size(15, 14);
             this.UserFilterCheckBox.TabIndex = 6;
             this.UserFilterCheckBox.UseVisualStyleBackColor = true;
+            this.UserFilterCheckBox.CheckedChanged += new System.EventHandler(this.UserFilterCheckBox_CheckedChanged);
             // 
             // MessageFilterCheckBox
             // 
@@ -108,6 +109,7 @@
             this.MessageFilterCheckBox.Size = new System.Drawing.Size(15, 14);
             this.MessageFilterCheckBox.TabIndex = 7;
             this.MessageFilterCheckBox.UseVisualStyleBackColor = true;
+            this.MessageFilterCheckBox.CheckedChanged += new System.EventHandler(this.MessageFilterCheckBox_CheckedChanged);
             // 
             // DateFilterCheckBox
             // 
@@ -117,6 +119,7 @@
             this.DateFilterCheckBox.Size = new System.Drawing.Size(15, 14);
             this.DateFilterCheckBox.TabIndex = 8;
             this.DateFilterCheckBox.UseVisualStyleBackColor = true;
+            this.DateFilterCheckBox.CheckedChanged += new System.EventHandler(this.DateFilterCheckBox_CheckedChanged);
             // 
             // label1
             // 

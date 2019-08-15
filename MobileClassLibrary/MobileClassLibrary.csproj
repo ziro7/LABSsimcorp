@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="Battery.cs" />
     <Compile Include="ColorfullScreen.cs" />
+    <Compile Include="FilterCheckBox.cs" />
+    <Compile Include="FilterValueDTO.cs" />
     <Compile Include="Headphones.cs" />
     <Compile Include="IBluetoothConnect.cs" />
     <Compile Include="IOutput.cs" />

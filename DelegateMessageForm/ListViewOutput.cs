@@ -24,7 +24,6 @@ namespace DelegateMessageForm {
         }
 
         public void WriteLine(List<LABSsimcorp.Message> messages, MobilePhone.FormatDelegate formatter) {
-
             MessageListView.Items.Clear();
             foreach (LABSsimcorp.Message message in messages) {
                 var user = message.User.Name;

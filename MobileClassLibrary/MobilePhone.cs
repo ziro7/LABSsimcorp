@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using LABSsimcorpy;
 
@@ -79,7 +80,39 @@ namespace LABSsimcorp {
 
         public void SMSReceivedHandler(Object sender, MessageEventArgs e) {
             messages.Add(e.Message);
-            Output.WriteLine(messages, Formatter);
+        }
+
+        public void ViewMessages(Dictionary<FilterCheckBox, bool> filterDictionary, FilterValueDTO filterValueDTO) {
+
+            List<Message> filteredMessages = FilterMessages(filterDictionary, filterValueDTO);
+            Output.WriteLine(filteredMessages, Formatter);
+        }
+
+        private List<Message> FilterMessages(Dictionary<FilterCheckBox, bool> filterDictionary, FilterValueDTO filterValueDTO) {
+
+            var filteredMessages = messages;
+
+            if (filterDictionary[FilterCheckBox.User]) {
+                filteredMessages = filteredMessages
+                                                    .Where(m => m.User.Name == filterValueDTO.UserName)
+                                                    .ToList();
+            }
+
+            if (filterDictionary[FilterCheckBox.Message]) {
+                filteredMessages = filteredMessages
+                                                    .Where(m => m.Text.Contains(filterValueDTO.MessageSearchText))
+                                                    .ToList();
+            }
+
+            if (filterDictionary[FilterCheckBox.Date]) {
+                filteredMessages = filteredMessages
+                                                    .Where(m => m.ReceivingTime >= filterValueDTO.FromDate)
+                                                    .Where(m => m.ReceivingTime <= filterValueDTO.ToDate)
+                                                    .ToList();
+            }
+           
+
+            return filteredMessages;
         }
 
         public void ChangeFormat (FormatDelegate formatDelegate) {
