@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using LABSsimcorp;
 
 namespace MobileClassLibrary.UnitTest {
@@ -16,7 +17,13 @@ namespace MobileClassLibrary.UnitTest {
         }
 
         public void WriteLine(List<Message> messages, MobilePhone.FormatDelegate formatter) {
-            WriteLine(formatter.Invoke(messages[messages.Count - 1].Text));
+            var stringtext = "";
+
+            foreach (Message message in messages) {
+                stringtext += message.Text;
+            }
+
+            WriteLine(formatter.Invoke(stringtext));
         }
     }
 }

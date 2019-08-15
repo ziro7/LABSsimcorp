@@ -13,6 +13,7 @@ namespace MobileClassLibrary.UnitTest {
         User jacob = new User(1, "Jacob", 12341234);
 
         [TestMethod]
+        [Ignore] // SMS received no longer automaticly gets printed.
         public void SMSReceived_FormatDelegateCapitalize_OutputIsCapitalized() {
 
             //arrange
@@ -28,6 +29,7 @@ namespace MobileClassLibrary.UnitTest {
         }
 
         [TestMethod]
+        [Ignore] // SMS received no longer automaticly gets printed.
         public void SMSReceived_FormatDelegateReverseCapitalize_OutputIsReverseCapitalized() {
             
             //arrange
@@ -43,6 +45,7 @@ namespace MobileClassLibrary.UnitTest {
         }
 
         [TestMethod]
+        [Ignore] // SMS received no longer automaticly gets printed.
         public void SMSReceived_FormatDelegateSort_OutputIsSorted() {
             
             //arrange

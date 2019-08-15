@@ -53,6 +53,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="FakeDelegateMessageForm.cs" />
+    <Compile Include="MobilePhoneTests.cs" />
     <Compile Include="OutputFormatTest.cs" />
     <Compile Include="FakeOutput.cs" />
     <Compile Include="MobilePhoneTest.cs" />
