@@ -13,5 +13,9 @@ namespace LABSsimcorp {
         public void WriteLine(string text) {
             Console.WriteLine(text);
         }
+
+        public void WriteLine(List<Message> messages, MobilePhone.FormatDelegate formatter) {
+            throw new NotImplementedException();
+        }
     }
 }

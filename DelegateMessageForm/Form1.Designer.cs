@@ -33,13 +33,16 @@
             this.MessageFilterCheckBox = new System.Windows.Forms.CheckBox();
             this.DateFilterCheckBox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.MessageListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // MessageBox
             // 
-            this.MessageBox.Location = new System.Drawing.Point(12, 127);
+            this.MessageBox.Location = new System.Drawing.Point(12, 417);
             this.MessageBox.Name = "MessageBox";
-            this.MessageBox.Size = new System.Drawing.Size(467, 412);
+            this.MessageBox.Size = new System.Drawing.Size(467, 112);
             this.MessageBox.TabIndex = 0;
             this.MessageBox.Text = "";
             this.MessageBox.TextChanged += new System.EventHandler(this.MessageBox_TextChanged);
@@ -124,11 +127,24 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Filter by:";
             // 
+            // MessageListView
+            // 
+            this.MessageListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.MessageListView.Location = new System.Drawing.Point(12, 129);
+            this.MessageListView.Name = "MessageListView";
+            this.MessageListView.Size = new System.Drawing.Size(467, 282);
+            this.MessageListView.TabIndex = 10;
+            this.MessageListView.UseCompatibleStateImageBehavior = false;
+            this.MessageListView.View = System.Windows.Forms.View.Tile;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 560);
+            this.Controls.Add(this.MessageListView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DateFilterCheckBox);
             this.Controls.Add(this.MessageFilterCheckBox);
@@ -158,6 +174,9 @@
         private System.Windows.Forms.CheckBox MessageFilterCheckBox;
         private System.Windows.Forms.CheckBox DateFilterCheckBox;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListView MessageListView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
 

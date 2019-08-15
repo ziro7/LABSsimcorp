@@ -1,4 +1,6 @@
-﻿using LABSsimcorp;
+﻿using System;
+using System.Collections.Generic;
+using LABSsimcorp;
 
 namespace MobileClassLibrary.UnitTest {
     class FakeOutput : IOutput {
@@ -11,6 +13,10 @@ namespace MobileClassLibrary.UnitTest {
 
         public void WriteLine(string text) {
             WriteLineText = text;
+        }
+
+        public void WriteLine(List<Message> messages, MobilePhone.FormatDelegate formatter) {
+            WriteLine(formatter.Invoke(messages[messages.Count - 1].Text));
         }
     }
 }

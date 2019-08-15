@@ -6,8 +6,9 @@ namespace DelegateMessageForm {
     public partial class Form1 : Form {
 
         static Timer myTimer = new Timer();
-        LabelOutput output;
+        //LabelOutput output;
         MobilePhone phone;
+        ListViewOutput output;
 
         public Form1() {
             InitializeComponent();
@@ -16,14 +17,21 @@ namespace DelegateMessageForm {
 
         private void SendMessage() {
 
-            output = new LabelOutput(MessageBox);
+            output = new ListViewOutput(MessageListView);
             phone = new MobilePhone(Model.Iphone10, output);
+            PopulateComboBoxOfUsers();
 
-            output.WriteLine("Starting Messages every 2 sec");
+            output.WriteLine("Starting Messages every 1 sec");
 
             AttachOnTickEventHandler();
-            myTimer.Interval = 2000;
+            myTimer.Interval = 1000;
             myTimer.Start();
+        }
+
+        private void PopulateComboBoxOfUsers() {
+            foreach (var user in phone.ContactList) {
+                UserComboBox.Items.Add(user.Name);
+            }
         }
 
         private void AttachOnTickEventHandler() {

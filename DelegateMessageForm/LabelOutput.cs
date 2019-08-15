@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using LABSsimcorp;
 
@@ -16,6 +17,10 @@ namespace DelegateMessageForm {
 
         public void WriteLine(string text) {
             Messagebox.Text += "" + text + Environment.NewLine;
+        }
+
+        public void WriteLine(List<LABSsimcorp.Message> messages, MobilePhone.FormatDelegate formatter) {
+            throw new NotImplementedException();
         }
     }
 }
