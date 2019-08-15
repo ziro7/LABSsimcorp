@@ -36,6 +36,8 @@
             this.MessageListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.StartMessageButton = new System.Windows.Forms.Button();
+            this.StopMessageButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // MessageBox
@@ -142,11 +144,33 @@
             this.MessageListView.UseCompatibleStateImageBehavior = false;
             this.MessageListView.View = System.Windows.Forms.View.Tile;
             // 
+            // StartMessageButton
+            // 
+            this.StartMessageButton.Location = new System.Drawing.Point(13, 38);
+            this.StartMessageButton.Name = "StartMessageButton";
+            this.StartMessageButton.Size = new System.Drawing.Size(75, 23);
+            this.StartMessageButton.TabIndex = 11;
+            this.StartMessageButton.Text = "Start";
+            this.StartMessageButton.UseVisualStyleBackColor = true;
+            this.StartMessageButton.Click += new System.EventHandler(this.StartMessageButton_Click);
+            // 
+            // StopMessageButton
+            // 
+            this.StopMessageButton.Location = new System.Drawing.Point(94, 38);
+            this.StopMessageButton.Name = "StopMessageButton";
+            this.StopMessageButton.Size = new System.Drawing.Size(75, 23);
+            this.StopMessageButton.TabIndex = 12;
+            this.StopMessageButton.Text = "Stop";
+            this.StopMessageButton.UseVisualStyleBackColor = true;
+            this.StopMessageButton.Click += new System.EventHandler(this.StopMessageButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 560);
+            this.Controls.Add(this.StopMessageButton);
+            this.Controls.Add(this.StartMessageButton);
             this.Controls.Add(this.MessageListView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DateFilterCheckBox);
@@ -180,6 +204,8 @@
         private System.Windows.Forms.ListView MessageListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Button StartMessageButton;
+        private System.Windows.Forms.Button StopMessageButton;
     }
 }
 

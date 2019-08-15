@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 using LABSsimcorp;
 
 namespace DelegateMessageForm {
     public partial class Form1 : Form {
 
-        static Timer myTimer = new Timer();
+        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         //LabelOutput output;
         MobilePhone phone;
         ListViewOutput output;
+        Thread messageThread;
         Dictionary<FilterCheckBox,bool> filterDictionary;
 
         public bool FilterOnUsers { get; set; }
@@ -32,12 +34,7 @@ namespace DelegateMessageForm {
             filterDictionary = new Dictionary<FilterCheckBox, bool>();
             CreateFilterDictionary();
             PopulateComboBoxOfUsers();
-
-            output.WriteLine("Starting Messages every 1 sec");
-
             AttachOnTickEventHandler();
-            myTimer.Interval = 1000;
-            myTimer.Start();
         }
 
         private void PopulateComboBoxOfUsers() {
@@ -136,6 +133,32 @@ namespace DelegateMessageForm {
         private void DisplaySelectedMessages() {
             UpdateFilterDictionary();
             phone.ViewMessages(filterDictionary, new FilterValueDTO(SelectedUserName, MessageTextInFilterBoks, FromDate, ToDate));
+        }
+
+        private void StartMessageButton_Click(object sender, EventArgs e) {
+            messageThread = new Thread(new ThreadStart( MessageThreadFunction));     
+        }
+
+        private void StopMessageButton_Click(object sender, EventArgs e) {
+            messageThread.Abort();
+        }
+
+        public void MessageThreadFunction() {
+            try {
+
+                output.WriteLine("Starting Messages");
+
+                myTimer.Interval = 1000;
+                myTimer.Start();
+
+            } catch (ThreadAbortException) {
+
+                output.WriteLine("Aborting");
+
+            } catch (Exception) {
+
+                throw;
+            }
         }
     }
 }
