@@ -13,6 +13,7 @@ namespace LABSsimcorp {
         public MessageStorage(List<User> contactlist) {
             MessagesList = new List<Message>();
             ContactList = contactlist;
+            AttachOnElapsedEventHandler();
         }
 
         public void Add(Message message) {
@@ -25,7 +26,12 @@ namespace LABSsimcorp {
             OnMessageRemoved?.Invoke(this, new MessageEventArgs(message));
         }
 
-        public void OnTickHandler(object sender, EventArgs e) {
+        private void AttachOnElapsedEventHandler() {
+            MessageInisiator.myTimer.Elapsed += OnElapsedHandler;
+        }
+
+        public void OnElapsedHandler(object sender, EventArgs e) {
+
             var message = GenerateRandomMessage();
 
             Add(message);

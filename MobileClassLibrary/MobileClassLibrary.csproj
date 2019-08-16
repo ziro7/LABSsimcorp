@@ -51,6 +51,7 @@
     <Compile Include="Keyboard.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="MessageEventArgs.cs" />
+    <Compile Include="MessageInisiator.cs" />
     <Compile Include="MessageStorage.cs" />
     <Compile Include="MicroPhone.cs" />
     <Compile Include="MobilePhone.cs" />

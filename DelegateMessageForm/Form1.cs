@@ -12,7 +12,7 @@ namespace DelegateMessageForm {
         MobilePhone phone;
         ListViewOutput output;
         Thread messageThread;
-        Dictionary<FilterCheckBox,bool> filterDictionary;
+        Dictionary<FilterCheckBox, bool> filterDictionary;
 
         public bool FilterOnUsers { get; set; }
         public string SelectedUserName { get; set; }
@@ -34,7 +34,36 @@ namespace DelegateMessageForm {
             filterDictionary = new Dictionary<FilterCheckBox, bool>();
             CreateFilterDictionary();
             PopulateComboBoxOfUsers();
-            AttachOnTickEventHandler();
+            AttachEventHandlers();
+        }
+
+        private void AttachEventHandlers() {
+            phone.messages.OnMessageReceived += MessageReceivedHandler;
+            phone.messages.OnMessageRemoved += MessageRemovedHandler;
+        }
+
+        private void MessageRemovedHandler(object sender, MessageEventArgs e) {
+
+            if (this.InvokeRequired) {
+                this.BeginInvoke((MethodInvoker)delegate {
+                    MessageReceivedHandler(sender, e);
+                });
+                return;
+            }
+
+            DisplaySelectedMessages();
+        }
+
+        private void MessageReceivedHandler(object sender, MessageEventArgs e) {
+
+            if (this.InvokeRequired) {
+                this.BeginInvoke((MethodInvoker)delegate {
+                    MessageReceivedHandler(sender, e);
+                });
+                return;
+            }
+
+            DisplaySelectedMessages();
         }
 
         private void PopulateComboBoxOfUsers() {
@@ -43,17 +72,13 @@ namespace DelegateMessageForm {
             }
         }
 
-        private void AttachOnTickEventHandler() {
-            myTimer.Tick += phone.messages.OnTickHandler;
-        }
-
         private void MessageBox_TextChanged(object sender, EventArgs e) {
             //Do anything?
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) {
-            
-            if(comboBox1.Text == "Capitalized") {
+
+            if (comboBox1.Text == "Capitalized") {
                 output.WriteLine("Writing the texts as: Capitalized");
                 phone.ChangeFormat(OutputFormat.FormatToUpper);
             }
@@ -94,7 +119,7 @@ namespace DelegateMessageForm {
         }
 
         private void UserFilterCheckBox_CheckedChanged(object sender, EventArgs e) {
-            if(UserComboBox.SelectedItem != null) {
+            if (UserComboBox.SelectedItem != null) {
                 FilterOnUsers = !FilterOnUsers;
                 SelectedUserName = UserComboBox.SelectedItem.ToString();
                 DisplaySelectedMessages();
@@ -102,11 +127,11 @@ namespace DelegateMessageForm {
                 System.Windows.Forms.MessageBox.Show("Please select a user prior to filter on it.", "Error", MessageBoxButtons.OK);
                 UserFilterCheckBox.Checked = FilterOnUsers;
             }
-            
+
         }
 
         private void MessageFilterCheckBox_CheckedChanged(object sender, EventArgs e) {
-            if(MessageFilterTextBox.Text != "") {
+            if (MessageFilterTextBox.Text != "") {
                 FilterOnMessageText = !FilterOnMessageText;
                 MessageTextInFilterBoks = MessageFilterTextBox.Text;
                 DisplaySelectedMessages();
@@ -118,7 +143,7 @@ namespace DelegateMessageForm {
         }
 
         private void DateFilterCheckBox_CheckedChanged(object sender, EventArgs e) {
-            if(FromDateTimePicker.Value != null && ToDateTimePicker.Value != null) {
+            if (FromDateTimePicker.Value != null && ToDateTimePicker.Value != null) {
                 FilterOnDate = !FilterOnDate;
                 FromDate = FromDateTimePicker.Value;
                 ToDate = ToDateTimePicker.Value;
@@ -136,29 +161,13 @@ namespace DelegateMessageForm {
         }
 
         private void StartMessageButton_Click(object sender, EventArgs e) {
-            messageThread = new Thread(new ThreadStart( MessageThreadFunction));     
+            output.WriteLine("Start Button pushed:");
+            messageThread = new Thread(new ThreadStart(MessageInisiator.GenerateMessages));
+            messageThread.Start();
         }
 
         private void StopMessageButton_Click(object sender, EventArgs e) {
             messageThread.Abort();
-        }
-
-        public void MessageThreadFunction() {
-            try {
-
-                output.WriteLine("Starting Messages");
-
-                myTimer.Interval = 1000;
-                myTimer.Start();
-
-            } catch (ThreadAbortException) {
-
-                output.WriteLine("Aborting");
-
-            } catch (Exception) {
-
-                throw;
-            }
         }
     }
 }
