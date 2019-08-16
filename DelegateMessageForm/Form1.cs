@@ -161,13 +161,14 @@ namespace DelegateMessageForm {
         }
 
         private void StartMessageButton_Click(object sender, EventArgs e) {
-            output.WriteLine("Start Button pushed:");
             messageThread = new Thread(new ThreadStart(MessageInisiator.GenerateMessages));
             messageThread.Start();
+            output.WriteLine("Start Button pushed. - messageThread is alive?: " + messageThread.IsAlive);
         }
 
         private void StopMessageButton_Click(object sender, EventArgs e) {
             messageThread.Abort();
+            output.WriteLine("Stop Button pushed. - messageThread is alive?: " + messageThread.IsAlive);
         }
     }
 }

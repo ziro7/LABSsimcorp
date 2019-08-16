@@ -39,34 +39,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Battery.cs" />
-    <Compile Include="ColorfullScreen.cs" />
+    <Compile Include="MobileElements\Battery.cs" />
+    <Compile Include="MobileElements\ColorfullScreen.cs" />
     <Compile Include="FilterCheckBox.cs" />
     <Compile Include="FilterValueDTO.cs" />
-    <Compile Include="Headphones.cs" />
-    <Compile Include="IBluetoothConnect.cs" />
-    <Compile Include="IOutput.cs" />
-    <Compile Include="IPlayback .cs" />
-    <Compile Include="IScreenImage.cs" />
-    <Compile Include="Keyboard.cs" />
-    <Compile Include="Message.cs" />
+    <Compile Include="MobileElements\Headphones.cs" />
+    <Compile Include="MobileElements\IBluetoothConnect.cs" />
+    <Compile Include="MobileElements\IOutput.cs" />
+    <Compile Include="MobileElements\IPlayback .cs" />
+    <Compile Include="MobileElements\IScreenImage.cs" />
+    <Compile Include="MobileElements\Keyboard.cs" />
+    <Compile Include="MobileElements\Message.cs" />
     <Compile Include="MessageEventArgs.cs" />
     <Compile Include="MessageInisiator.cs" />
     <Compile Include="MessageStorage.cs" />
-    <Compile Include="MicroPhone.cs" />
+    <Compile Include="MobileElements\MicroPhone.cs" />
     <Compile Include="MobilePhone.cs" />
-    <Compile Include="Model.cs" />
-    <Compile Include="MonoChromeScreen.cs" />
-    <Compile Include="OLEDScreen.cs" />
+    <Compile Include="MobileElements\Model.cs" />
+    <Compile Include="MobileElements\MonoChromeScreen.cs" />
+    <Compile Include="MobileElements\OLEDScreen.cs" />
     <Compile Include="OutputFormat.cs" />
-    <Compile Include="PhoneSpeaker.cs" />
+    <Compile Include="MobileElements\PhoneSpeaker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RetinaScreen.cs" />
-    <Compile Include="ScreenBase.cs" />
+    <Compile Include="MobileElements\RetinaScreen.cs" />
+    <Compile Include="MobileElements\ScreenBase.cs" />
     <Compile Include="SMSProvider.cs" />
-    <Compile Include="Speakers.cs" />
-    <Compile Include="TouchKeyboard.cs" />
-    <Compile Include="User.cs" />
+    <Compile Include="MobileElements\Speakers.cs" />
+    <Compile Include="MobileElements\TouchKeyboard.cs" />
+    <Compile Include="MobileElements\User.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

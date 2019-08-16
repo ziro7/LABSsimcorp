@@ -7,19 +7,21 @@ using System.Timers;
 namespace LABSsimcorp {
     public static class MessageInisiator {
 
-        public static Timer myTimer = new Timer(1000);
+        public static Timer myTimer = new Timer {
+            Interval = 1000,
+            Enabled = true
+        };
 
         public static void GenerateMessages() {
-            using (var myTimer = new Timer {
-                Interval = 1000,
-                Enabled = true
-            }) {
+            if (myTimer != null) {
                 myTimer.Start();
             }
         }
 
         public static void StopMessages() {
-            myTimer.Close();
+            if(myTimer != null) {
+                myTimer.Close();
+            }
         }
     }
 }
