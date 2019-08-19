@@ -3,49 +3,34 @@ using System.Collections.Generic;
 
 
 namespace LABSsimcorp {
-    public class MessageStorage {
+    public class MessageStorage : ISMSStorage{
         public List<Message> MessagesList { get; set; }
-        public List<User> ContactList { get; set; }
 
-        public event EventHandler<MessageEventArgs> OnMessageReceived;
+        public event EventHandler<MessageEventArgs> OnMessageStored;
         public event EventHandler<MessageEventArgs> OnMessageRemoved;
 
-        public MessageStorage(List<User> contactlist) {
+        public MessageStorage() {
             MessagesList = new List<Message>();
-            ContactList = contactlist;
-            AttachOnElapsedEventHandler();
+            AttachOnSMSProcessedHandler();
+        }
+
+        private void AttachOnSMSProcessedHandler() {
+            SMSProvider.OnSMSProcessed += AddHandler;
+        }
+
+        public void AddHandler(object sender, MessageEventArgs e) {
+            MessagesList.Add(e.Message);
+            OnMessageStored?.Invoke(this, new MessageEventArgs(e.Message));
         }
 
         public void Add(Message message) {
             MessagesList.Add(message);
-            OnMessageReceived?.Invoke(this, new MessageEventArgs(message));
+            OnMessageStored?.Invoke(this, new MessageEventArgs(message));
         }
 
         public void Remove (Message message) {
             MessagesList.Remove(message);
             OnMessageRemoved?.Invoke(this, new MessageEventArgs(message));
         }
-
-        private void AttachOnElapsedEventHandler() {
-            MessageInisiator.myTimer.Elapsed += OnElapsedHandler;
-        }
-
-        public void OnElapsedHandler(object sender, EventArgs e) {
-
-            var message = GenerateRandomMessage();
-
-            Add(message);
-        }
-
-        private Message GenerateRandomMessage() {
-            Random random = new Random();
-            int userInt = random.Next(0, ContactList.Count);
-
-            string message = string.Format("SMS received at: {0} {1}", DateTime.Now.ToLongTimeString(), DateTime.Now.ToLongDateString());
-
-            return new Message(ContactList[userInt], message, DateTime.Now);
-        }
-
-
     }
 }

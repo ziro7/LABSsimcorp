@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IStorage.cs" />
     <Compile Include="MobileElements\Battery.cs" />
     <Compile Include="MobileElements\ColorfullScreen.cs" />
     <Compile Include="FilterCheckBox.cs" />
@@ -66,7 +67,7 @@
     <Compile Include="SMSProvider.cs" />
     <Compile Include="MobileElements\Speakers.cs" />
     <Compile Include="MobileElements\TouchKeyboard.cs" />
-    <Compile Include="MobileElements\User.cs" />
+    <Compile Include="MobileElements\Contact.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,4 +1,4 @@
-﻿namespace LABSsimcorp {
+﻿namespace LabsSimcorp {
     public class MicroPhone {
 
     }

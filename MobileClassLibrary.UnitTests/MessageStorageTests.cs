@@ -15,11 +15,11 @@ namespace MobileClassLibrary.UnitTests {
 
             //arrange
             List<string> receivedEvents = new List<string>();
-            var jacob = new User(1, "Jacob", 12345678);
-            var messageStorage = new MessageStorage(new List<User>() { jacob });
+            var jacob = new Contact(1, "Jacob", 12345678);
+            var messageStorage = new MessageStorage();
 
             //act
-            messageStorage.OnMessageReceived += delegate (object sender, MessageEventArgs e) {
+            messageStorage.OnMessageStored += delegate (object sender, MessageEventArgs e) {
                 receivedEvents.Add(e.Message.Text);
             };
 
@@ -35,8 +35,8 @@ namespace MobileClassLibrary.UnitTests {
 
             //arrange
             List<string> receivedEvents = new List<string>();
-            var jacob = new User(1, "Jacob", 12345678);
-            var messageStorage = new MessageStorage(new List<User>() { jacob });
+            var jacob = new Contact(1, "Jacob", 12345678);
+            var messageStorage = new MessageStorage();
             var message = new Message(jacob, "message", DateTime.Now);
             messageStorage.Add(message);
 

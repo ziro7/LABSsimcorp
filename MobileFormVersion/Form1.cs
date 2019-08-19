@@ -11,7 +11,8 @@ namespace MobileFormVersion {
         private void ApplyButton_Click(object sender, EventArgs e) {
 
             var output = new LabelOutput(OutputLabel);
-            var mobilePhone = new MobilePhone(Model.Iphone10, output);
+            var smsStorage = new MessageStorage();
+            var mobilePhone = new MobilePhone(Model.Iphone10, output,smsStorage);
             output.WriteLine(mobilePhone.GetDescription());
 
             var choice = -1;

@@ -5,7 +5,8 @@ namespace LABSsimcorp {
         static void Main(string[] args) {
 
             var output = new ConsoleOutput();
-            var mobilePhone = new MobilePhone(Model.Iphone10, output);
+            var smsStorage = new MessageStorage();
+            var mobilePhone = new MobilePhone(Model.Iphone10, output,smsStorage);
             output.WriteLine(mobilePhone.GetDescription());
      
             output.WriteLine("Select playback component attached in Jack Stick.");

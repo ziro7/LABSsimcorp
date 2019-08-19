@@ -9,7 +9,8 @@ namespace MobileClassLibrary.UnitTest {
 
             //arrange
             var output = new FakeOutput();
-            var mobile = new MobilePhone(Model.Iphone8,output);
+            var smsStorage = new MessageStorage();
+            var mobile = new MobilePhone(Model.Iphone8,output,smsStorage);
             
             //act
             mobile.InsertEquipmentInJackStick(new Headphones(output));

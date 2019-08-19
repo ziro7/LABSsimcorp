@@ -182,6 +182,7 @@
             this.Controls.Add(this.FromDateTimePicker);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.MessageBox);
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

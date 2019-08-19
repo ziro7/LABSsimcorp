@@ -7,12 +7,15 @@ using LABSsimcorp;
 namespace DelegateMessageForm {
     public partial class Form1 : Form {
 
-        static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
+        //static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
         //LabelOutput output;
         MobilePhone phone;
+        MessageInisiator smsInitiator;
         ListViewOutput output;
         Thread messageThread;
         Dictionary<FilterCheckBox, bool> filterDictionary;
+
+        delegate void SetTextCallback(object sender, MessageEventArgs e);
 
         public bool FilterOnUsers { get; set; }
         public string SelectedUserName { get; set; }
@@ -24,46 +27,28 @@ namespace DelegateMessageForm {
 
         public Form1() {
             InitializeComponent();
-            SendMessage();
+            Setup();
         }
 
-        private void SendMessage() {
-
-            output = new ListViewOutput(MessageListView);
-            phone = new MobilePhone(Model.Iphone10, output);
-            filterDictionary = new Dictionary<FilterCheckBox, bool>();
+        private void Setup() {
+            SetupOutputPhoneAndFilter();
             CreateFilterDictionary();
             PopulateComboBoxOfUsers();
             AttachEventHandlers();
         }
 
-        private void AttachEventHandlers() {
-            phone.messages.OnMessageReceived += MessageReceivedHandler;
-            phone.messages.OnMessageRemoved += MessageRemovedHandler;
+        private void SetupOutputPhoneAndFilter() {
+            output = new ListViewOutput(MessageListView);
+            var smsStorage = new MessageStorage();
+            phone = new MobilePhone(Model.Iphone10, output, smsStorage);
+            smsInitiator = new MessageInisiator(phone);
+            filterDictionary = new Dictionary<FilterCheckBox, bool>();
         }
 
-        private void MessageRemovedHandler(object sender, MessageEventArgs e) {
-
-            if (this.InvokeRequired) {
-                this.BeginInvoke((MethodInvoker)delegate {
-                    MessageReceivedHandler(sender, e);
-                });
-                return;
-            }
-
-            DisplaySelectedMessages();
-        }
-
-        private void MessageReceivedHandler(object sender, MessageEventArgs e) {
-
-            if (this.InvokeRequired) {
-                this.BeginInvoke((MethodInvoker)delegate {
-                    MessageReceivedHandler(sender, e);
-                });
-                return;
-            }
-
-            DisplaySelectedMessages();
+        private void CreateFilterDictionary() {
+            filterDictionary.Add(FilterCheckBox.User, FilterOnUsers);
+            filterDictionary.Add(FilterCheckBox.Message, FilterOnMessageText);
+            filterDictionary.Add(FilterCheckBox.Date, FilterOnDate);
         }
 
         private void PopulateComboBoxOfUsers() {
@@ -71,6 +56,42 @@ namespace DelegateMessageForm {
                 UserComboBox.Items.Add(user.Name);
             }
         }
+
+        private void AttachEventHandlers() {
+            phone.Messages.OnMessageStored += MessageReceivedHandler;
+            phone.Messages.OnMessageRemoved += MessageRemovedHandler;
+        }
+
+
+        private void MessageRemovedHandler(object sender, MessageEventArgs e) {
+
+            // Bit of recursive defense to make sure it is on correct thread.
+            if (this.InvokeRequired) {
+                // we are on a worker thread.
+                // Set a delegate to the function ro call again.
+                var d = new SetTextCallback(MessageRemovedHandler);
+                // Now we invoke the form using the same method and input. 
+                this.Invoke(d, new object[] { this, e });
+            } else {
+                DisplaySelectedMessages();
+            }
+        }
+
+        private void MessageReceivedHandler(object sender, MessageEventArgs e) {
+
+            // Bit of recursive defense to make sure it is on correct thread.
+            if (this.InvokeRequired) {
+                // we are on a worker thread.
+                // Set a delegate to the function ro call again.
+                var d = new SetTextCallback(MessageReceivedHandler);
+                // Now we invoke the form using the same method and input. 
+                this.Invoke(d, new object[] { this, e});
+            } else {
+                DisplaySelectedMessages();
+            }
+        }
+
+
 
         private void MessageBox_TextChanged(object sender, EventArgs e) {
             //Do anything?
@@ -106,11 +127,7 @@ namespace DelegateMessageForm {
         }
 
 
-        private void CreateFilterDictionary() {
-            filterDictionary.Add(FilterCheckBox.User, FilterOnUsers);
-            filterDictionary.Add(FilterCheckBox.Message, FilterOnMessageText);
-            filterDictionary.Add(FilterCheckBox.Date, FilterOnDate);
-        }
+
 
         private void UpdateFilterDictionary() {
             filterDictionary[FilterCheckBox.User] = FilterOnUsers;
@@ -161,13 +178,14 @@ namespace DelegateMessageForm {
         }
 
         private void StartMessageButton_Click(object sender, EventArgs e) {
-            messageThread = new Thread(new ThreadStart(MessageInisiator.GenerateMessages));
+            messageThread = new Thread(new ThreadStart(smsInitiator.GenerateMessages));
             messageThread.Start();
             output.WriteLine("Start Button pushed. - messageThread is alive?: " + messageThread.IsAlive);
         }
 
         private void StopMessageButton_Click(object sender, EventArgs e) {
             messageThread.Abort();
+            smsInitiator.StopMessages();
             output.WriteLine("Stop Button pushed. - messageThread is alive?: " + messageThread.IsAlive);
         }
     }

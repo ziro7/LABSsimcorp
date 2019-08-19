@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using LabsSimcorp;
 
 namespace LABSsimcorp {
     public class MobilePhone {
@@ -11,16 +12,17 @@ namespace LABSsimcorp {
         public ScreenBase Screen { get; set; }
         public IPlayback AudioInJackStik { get; set; }
         public IOutput Output { get; set; }
-        public List<User> ContactList { get; set; }
+        public List<Contact> ContactList { get; set; }
         internal SMSProvider SMSProviderInstance { get; set; }
-        public MessageStorage messages { get; set; }
+        //public MessageStorage Messages { get; set; }
+        public ISMSStorage Messages;
 
-        public MobilePhone(Model model, IOutput outputChannel) {
+        public MobilePhone(Model model, IOutput outputChannel, ISMSStorage smsStorage) {
             ImportingOldContacts();
             Output = outputChannel;
-            SMSProviderInstance = new SMSProvider(ContactList);
-            messages = new MessageStorage(ContactList);
-            AttachSMSRecievedHandler();
+            Messages = smsStorage;
+            SMSProviderInstance = new SMSProvider();
+            //Messages = new MessageStorage();
             switch (model) {
                 case Model.IPhone6:
                     Battery = new Battery(100);
@@ -59,26 +61,17 @@ namespace LABSsimcorp {
         }
 
         private void ImportingOldContacts() {
-            ContactList = new List<User>();
-            ContactList.Add(new User(1, "Jacob", 12341234));
-            ContactList.Add(new User(2, "Jens", 12341235));
-            ContactList.Add(new User(3, "Lennert", 12341236));
-            ContactList.Add(new User(4, "Anne", 12341237));
-            ContactList.Add(new User(5, "Sofie", 12341238));
-            ContactList.Add(new User(6, "Gurli", 12341239));
+            ContactList = new List<Contact>();
+            ContactList.Add(new Contact(1, "Jacob", 12341234));
+            ContactList.Add(new Contact(2, "Jens", 12341235));
+            ContactList.Add(new Contact(3, "Lennert", 12341236));
+            ContactList.Add(new Contact(4, "Anne", 12341237));
+            ContactList.Add(new Contact(5, "Sofie", 12341238));
+            ContactList.Add(new Contact(6, "Gurli", 12341239));
         }
 
-        public void AddContact(User user) {
+        public void AddContact(Contact user) {
             ContactList.Add(user);
-            SMSProviderInstance.ContactList.Add(user);
-        }
-
-        private void AttachSMSRecievedHandler() {
-            SMSProviderInstance.OnSMSReceived += SMSReceivedHandler;
-        }
-
-        public void SMSReceivedHandler(Object sender, MessageEventArgs e) {
-            messages.Add(e.Message);
         }
 
         public void ViewMessages(Dictionary<FilterCheckBox, bool> filterDictionary, FilterValueDTO filterValueDTO) {
@@ -89,7 +82,7 @@ namespace LABSsimcorp {
 
         private List<Message> FilterMessages(Dictionary<FilterCheckBox, bool> filterDictionary, FilterValueDTO filterValueDTO) {
 
-            var filteredMessages = messages.MessagesList;
+            var filteredMessages = Messages.MessagesList;
 
             if (filterDictionary[FilterCheckBox.User]) {
                 filteredMessages = filteredMessages
