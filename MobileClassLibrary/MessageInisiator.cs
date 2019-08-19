@@ -2,28 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Timers;
 
 namespace LABSsimcorp {
-    public class MessageInisiator {
+    public abstract class MessageInisiator {
 
-        public Timer myTimer;
+        public System.Timers.Timer myTimer;
         public MobilePhone PhoneToMessage { get; set; }
 
-        public MessageInisiator(MobilePhone phoneToMessage, int intervalBetweenTicks = 1000) {
+        protected MessageInisiator(MobilePhone phoneToMessage, int intervalBetweenTicks = 1000) {
             PhoneToMessage = phoneToMessage;
-            myTimer = new Timer {
+            myTimer = new System.Timers.Timer {
                 Interval = intervalBetweenTicks,
                 Enabled = false
             };
             AttachOnElapsedEventHandler();
-
         }
         private void AttachOnElapsedEventHandler() {
             myTimer.Elapsed += OnElapsedHandler;
         }
 
         public void GenerateMessages() {
+
             if (myTimer != null) {
                 myTimer.Enabled = true;
                 myTimer.Start();
@@ -50,6 +51,9 @@ namespace LABSsimcorp {
 
             return new Message(PhoneToMessage.ContactList[userInt], message, DateTime.Now);
         }
+
+        public abstract void StartService();
+        public abstract void StopService();
 
         public static event EventHandler<MessageEventArgs> OnSMSReceived;
     }

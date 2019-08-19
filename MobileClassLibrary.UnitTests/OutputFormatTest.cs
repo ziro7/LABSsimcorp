@@ -18,7 +18,7 @@ namespace MobileClassLibrary.UnitTest {
             //arrange
             var smsStorage = new MessageStorage();
             var mobile = new MobilePhone(Model.Iphone8, output, smsStorage);
-            var inisiator = new MessageInisiator(mobile);
+            var inisiator = new ThreadMessageInisiator(mobile);
 
             //act
             mobile.ChangeFormat(OutputFormat.FormatToUpper);
@@ -36,7 +36,7 @@ namespace MobileClassLibrary.UnitTest {
             //arrange
             var smsStorage = new MessageStorage();
             var mobile = new MobilePhone(Model.Iphone8, output, smsStorage);
-            var inisiator = new MessageInisiator(mobile);
+            var inisiator = new ThreadMessageInisiator(mobile);
 
             //act
             mobile.ChangeFormat(OutputFormat.FormatToLower);
@@ -54,7 +54,7 @@ namespace MobileClassLibrary.UnitTest {
             //arrange
             var smsStorage = new MessageStorage();
             var mobile = new MobilePhone(Model.Iphone8, output, smsStorage);
-            var inisiator = new MessageInisiator(mobile);
+            var inisiator = new ThreadMessageInisiator(mobile);
 
             //act
             mobile.ChangeFormat(OutputFormat.FormatFunish);

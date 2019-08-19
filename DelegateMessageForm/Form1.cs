@@ -7,12 +7,9 @@ using LABSsimcorp;
 namespace DelegateMessageForm {
     public partial class Form1 : Form {
 
-        //static System.Windows.Forms.Timer myTimer = new System.Windows.Forms.Timer();
-        //LabelOutput output;
         MobilePhone phone;
         MessageInisiator smsInitiator;
         ListViewOutput output;
-        Thread messageThread;
         Dictionary<FilterCheckBox, bool> filterDictionary;
 
         delegate void SetTextCallback(object sender, MessageEventArgs e);
@@ -43,7 +40,8 @@ namespace DelegateMessageForm {
             output = new ListViewOutput(MessageListView);
             var smsStorage = new MessageStorage();
             phone = new MobilePhone(Model.Iphone10, output, smsStorage);
-            smsInitiator = new MessageInisiator(phone);
+            //smsInitiator = new ThreadMessageInisiator(phone);
+            smsInitiator = new TaskMessageInisiator(phone);
             filterDictionary = new Dictionary<FilterCheckBox, bool>();
         }
 
@@ -101,8 +99,6 @@ namespace DelegateMessageForm {
                 BatteryPercentageProgressBar.Increment(obj);
             }         
         }
-
-
 
         private void MessageBox_TextChanged(object sender, EventArgs e) {
             //Do anything?
@@ -189,16 +185,11 @@ namespace DelegateMessageForm {
         }
 
         private void StartMessageButton_Click(object sender, EventArgs e) {
-            messageThread = new Thread(new ThreadStart(smsInitiator.GenerateMessages));
-            messageThread.Start();
-            output.WriteLine("Start Button pushed. - messageThread is alive?: " + messageThread.IsAlive);
+            smsInitiator.StartService();
         }
 
         private void StopMessageButton_Click(object sender, EventArgs e) {
-            if (messageThread == null) { return; }
-            messageThread.Abort();
             smsInitiator.StopMessages();
-            output.WriteLine("Stop Button pushed. - messageThread is alive?: " + messageThread.IsAlive);
         }
 
         private void ChargeButton_Click(object sender, EventArgs e) {

@@ -68,6 +68,8 @@
     <Compile Include="MobileElements\Speakers.cs" />
     <Compile Include="MobileElements\TouchKeyboard.cs" />
     <Compile Include="MobileElements\Contact.cs" />
+    <Compile Include="TaskMessageInisiator.cs" />
+    <Compile Include="ThreadMessageInisiator.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

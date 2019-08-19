@@ -22,7 +22,7 @@ namespace MobileClassLibrary.UnitTests {
             FilterValueDTO filterValueDTO = new FilterValueDTO("Jacob", "message", DateTime.Now, DateTime.Now.Add(new TimeSpan(1, 0, 0)));
             MessageStorage smsStorage= new MessageStorage();
             MobilePhone mobile = new MobilePhone(Model.Iphone8, output, smsStorage);
-            MessageInisiator inisiator = new MessageInisiator(mobile);
+            MessageInisiator inisiator = new ThreadMessageInisiator(mobile);
             fakeForm.FilterDict.Add(FilterCheckBox.User, true);
             fakeForm.FilterDict.Add(FilterCheckBox.Message, false);
             fakeForm.FilterDict.Add(FilterCheckBox.Date, false);
@@ -57,7 +57,7 @@ namespace MobileClassLibrary.UnitTests {
             FilterValueDTO filterValueDTO = new FilterValueDTO("Jacob", "Jacob", DateTime.Now, DateTime.Now.Add(new TimeSpan(1, 0, 0)));
             MessageStorage smsStorage = new MessageStorage();
             MobilePhone mobile = new MobilePhone(Model.Iphone8, output, smsStorage);
-            MessageInisiator inisiator = new MessageInisiator(mobile);
+            MessageInisiator inisiator = new ThreadMessageInisiator(mobile);
             fakeForm.FilterDict.Add(FilterCheckBox.User, false);
             fakeForm.FilterDict.Add(FilterCheckBox.Message, true);
             fakeForm.FilterDict.Add(FilterCheckBox.Date, false);
@@ -92,7 +92,7 @@ namespace MobileClassLibrary.UnitTests {
             FilterValueDTO filterValueDTO = new FilterValueDTO("Jacob", "MESSAGE", DateTime.Now, DateTime.Now.Add(new TimeSpan(1, 0, 0)));
             MessageStorage smsStorage = new MessageStorage();
             MobilePhone mobile = new MobilePhone(Model.Iphone8, output, smsStorage);
-            MessageInisiator inisiator = new MessageInisiator(mobile);
+            MessageInisiator inisiator = new ThreadMessageInisiator(mobile);
             fakeForm.FilterDict.Add(FilterCheckBox.User, false);
             fakeForm.FilterDict.Add(FilterCheckBox.Message, false);
             fakeForm.FilterDict.Add(FilterCheckBox.Date, true);
@@ -126,7 +126,7 @@ namespace MobileClassLibrary.UnitTests {
             FilterValueDTO filterValueDTO = new FilterValueDTO("Jacob", "Message3", DateTime.Now, DateTime.Now.Add(new TimeSpan(1, 0, 0)));
             MessageStorage smsStorage = new MessageStorage();
             MobilePhone mobile = new MobilePhone(Model.Iphone8, output, smsStorage);
-            MessageInisiator inisiator = new MessageInisiator(mobile);
+            MessageInisiator inisiator = new ThreadMessageInisiator(mobile);
             fakeForm.FilterDict.Add(FilterCheckBox.User, true);
             fakeForm.FilterDict.Add(FilterCheckBox.Message, true);
             fakeForm.FilterDict.Add(FilterCheckBox.Date, true);
