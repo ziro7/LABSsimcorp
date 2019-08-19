@@ -10,8 +10,6 @@ namespace LABSsimcorp {
         public Timer myTimer;
         public MobilePhone PhoneToMessage { get; set; }
 
-        public static event EventHandler<MessageEventArgs> OnSMSReceived;
-
         public MessageInisiator(MobilePhone phoneToMessage, int intervalBetweenTicks = 1000) {
             PhoneToMessage = phoneToMessage;
             myTimer = new Timer {
@@ -52,5 +50,7 @@ namespace LABSsimcorp {
 
             return new Message(PhoneToMessage.ContactList[userInt], message, DateTime.Now);
         }
+
+        public static event EventHandler<MessageEventArgs> OnSMSReceived;
     }
 }

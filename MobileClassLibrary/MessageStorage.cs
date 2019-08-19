@@ -6,9 +6,6 @@ namespace LABSsimcorp {
     public class MessageStorage : ISMSStorage{
         public List<Message> MessagesList { get; set; }
 
-        public event EventHandler<MessageEventArgs> OnMessageStored;
-        public event EventHandler<MessageEventArgs> OnMessageRemoved;
-
         public MessageStorage() {
             MessagesList = new List<Message>();
             AttachOnSMSProcessedHandler();
@@ -32,5 +29,8 @@ namespace LABSsimcorp {
             MessagesList.Remove(message);
             OnMessageRemoved?.Invoke(this, new MessageEventArgs(message));
         }
+
+        public event EventHandler<MessageEventArgs> OnMessageStored;
+        public event EventHandler<MessageEventArgs> OnMessageRemoved;
     }
 }

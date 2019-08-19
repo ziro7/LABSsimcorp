@@ -38,6 +38,8 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StartMessageButton = new System.Windows.Forms.Button();
             this.StopMessageButton = new System.Windows.Forms.Button();
+            this.BatteryPercentageProgressBar = new System.Windows.Forms.ProgressBar();
+            this.ChargeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // MessageBox
@@ -58,7 +60,7 @@
             "Sort",
             "Shorten",
             "Replace"});
-            this.comboBox1.Location = new System.Drawing.Point(12, 90);
+            this.comboBox1.Location = new System.Drawing.Point(13, 102);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(201, 21);
             this.comboBox1.TabIndex = 1;
@@ -146,7 +148,7 @@
             // 
             // StartMessageButton
             // 
-            this.StartMessageButton.Location = new System.Drawing.Point(13, 38);
+            this.StartMessageButton.Location = new System.Drawing.Point(12, 73);
             this.StartMessageButton.Name = "StartMessageButton";
             this.StartMessageButton.Size = new System.Drawing.Size(75, 23);
             this.StartMessageButton.TabIndex = 11;
@@ -156,7 +158,7 @@
             // 
             // StopMessageButton
             // 
-            this.StopMessageButton.Location = new System.Drawing.Point(94, 38);
+            this.StopMessageButton.Location = new System.Drawing.Point(93, 73);
             this.StopMessageButton.Name = "StopMessageButton";
             this.StopMessageButton.Size = new System.Drawing.Size(75, 23);
             this.StopMessageButton.TabIndex = 12;
@@ -164,11 +166,30 @@
             this.StopMessageButton.UseVisualStyleBackColor = true;
             this.StopMessageButton.Click += new System.EventHandler(this.StopMessageButton_Click);
             // 
+            // BatteryPercentageProgressBar
+            // 
+            this.BatteryPercentageProgressBar.Location = new System.Drawing.Point(13, 13);
+            this.BatteryPercentageProgressBar.Name = "BatteryPercentageProgressBar";
+            this.BatteryPercentageProgressBar.Size = new System.Drawing.Size(200, 23);
+            this.BatteryPercentageProgressBar.TabIndex = 13;
+            // 
+            // ChargeButton
+            // 
+            this.ChargeButton.Location = new System.Drawing.Point(48, 42);
+            this.ChargeButton.Name = "ChargeButton";
+            this.ChargeButton.Size = new System.Drawing.Size(120, 23);
+            this.ChargeButton.TabIndex = 14;
+            this.ChargeButton.Text = "Charge";
+            this.ChargeButton.UseVisualStyleBackColor = true;
+            this.ChargeButton.Click += new System.EventHandler(this.ChargeButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(520, 560);
+            this.Controls.Add(this.ChargeButton);
+            this.Controls.Add(this.BatteryPercentageProgressBar);
             this.Controls.Add(this.StopMessageButton);
             this.Controls.Add(this.StartMessageButton);
             this.Controls.Add(this.MessageListView);
@@ -207,6 +228,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button StartMessageButton;
         private System.Windows.Forms.Button StopMessageButton;
+        private System.Windows.Forms.ProgressBar BatteryPercentageProgressBar;
+        private System.Windows.Forms.Button ChargeButton;
     }
 }
 

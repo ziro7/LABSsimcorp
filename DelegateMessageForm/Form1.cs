@@ -16,6 +16,7 @@ namespace DelegateMessageForm {
         Dictionary<FilterCheckBox, bool> filterDictionary;
 
         delegate void SetTextCallback(object sender, MessageEventArgs e);
+        delegate void SetProgressbar(int change);
 
         public bool FilterOnUsers { get; set; }
         public string SelectedUserName { get; set; }
@@ -35,6 +36,7 @@ namespace DelegateMessageForm {
             CreateFilterDictionary();
             PopulateComboBoxOfUsers();
             AttachEventHandlers();
+            BatteryPercentageProgressBar.Value = phone.Battery.PercentageCharged;
         }
 
         private void SetupOutputPhoneAndFilter() {
@@ -60,8 +62,8 @@ namespace DelegateMessageForm {
         private void AttachEventHandlers() {
             phone.Messages.OnMessageStored += MessageReceivedHandler;
             phone.Messages.OnMessageRemoved += MessageRemovedHandler;
+            phone.Battery.OnBatteryIsChanging += BatteryChangeingHandler;
         }
-
 
         private void MessageRemovedHandler(object sender, MessageEventArgs e) {
 
@@ -89,6 +91,15 @@ namespace DelegateMessageForm {
             } else {
                 DisplaySelectedMessages();
             }
+        }
+
+        private void BatteryChangeingHandler(int obj) {
+            if (this.InvokeRequired) {
+                var d = new SetProgressbar(BatteryChangeingHandler);
+                this.Invoke(d, new object[] { obj });
+            } else {
+                BatteryPercentageProgressBar.Increment(obj);
+            }         
         }
 
 
@@ -184,9 +195,20 @@ namespace DelegateMessageForm {
         }
 
         private void StopMessageButton_Click(object sender, EventArgs e) {
+            if (messageThread == null) { return; }
             messageThread.Abort();
             smsInitiator.StopMessages();
             output.WriteLine("Stop Button pushed. - messageThread is alive?: " + messageThread.IsAlive);
+        }
+
+        private void ChargeButton_Click(object sender, EventArgs e) {
+            phone.Battery.IsCharging = !phone.Battery.IsCharging;
+
+            if (phone.Battery.IsCharging) {
+                phone.Battery.Charge();
+            } else {
+                phone.Battery.Discharge();
+            }
         }
     }
 }
