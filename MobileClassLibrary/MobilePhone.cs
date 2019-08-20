@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using LabsSimcorp;
 
 namespace LABSsimcorp {
     public class MobilePhone {
-        public Battery Battery { get; set; }
+        public IBattery Battery { get; set; }
         public Keyboard Keyboard { get; set; }
         public MicroPhone MicroPhone { get; set; }
         public ScreenBase Screen { get; set; }
@@ -14,7 +15,6 @@ namespace LABSsimcorp {
         public IOutput Output { get; set; }
         public List<Contact> ContactList { get; set; }
         internal SMSProvider SMSProviderInstance { get; set; }
-        //public MessageStorage Messages { get; set; }
         public ISMSStorage Messages;
 
         public MobilePhone(Model model, IOutput outputChannel, ISMSStorage smsStorage) {
@@ -22,39 +22,33 @@ namespace LABSsimcorp {
             Output = outputChannel;
             Messages = smsStorage;
             SMSProviderInstance = new SMSProvider();
-            //Messages = new MessageStorage();
+            //Battery = new ThreadBattery(100);
+            //Battery = new TaskBattery(100);
+            IBatteryFactory batteryFactory = LoadBattery(); //Loader den factory der er sat i settings - Pt. findes der kun 1.
+            Battery = batteryFactory.CreateTaskBattery(); //Her vælges om man vælger den ene eller anden form for battery.
+
             switch (model) {
                 case Model.IPhone6:
-                    //Battery = new ThreadBattery(100);
-                    Battery = new TaskBattery(100);
                     Keyboard = new Keyboard(false);
                     MicroPhone = new MicroPhone();
                     Screen = new MonoChromeScreen(5, 100, outputChannel);
                     break;
                 case Model.Iphone7:
-                    //Battery = new ThreadBattery(120);
-                    Battery = new TaskBattery(120);
                     Keyboard = new Keyboard(false);
                     MicroPhone = new MicroPhone();
                     Screen = new ColorfullScreen(5.3, 120, outputChannel);
                     break;
                 case Model.Iphone8:
-                    //Battery = new ThreadBattery(150);
-                    Battery = new TaskBattery(150);
                     Keyboard = new Keyboard(false);
                     MicroPhone = new MicroPhone();
                     Screen = new OLEDScreen(5.5, 150, outputChannel);
                     break;
                 case Model.Iphone10:
-                    //Battery = new ThreadBattery(200);
-                    Battery = new TaskBattery(200);
                     Keyboard = new Keyboard(false);
                     MicroPhone = new MicroPhone();
                     Screen = new RetinaScreen(6, 200, outputChannel);
                     break;
                 case Model.SamsungGalaxy10:
-                    //Battery = new ThreadBattery(200);
-                    Battery = new TaskBattery(200);
                     Keyboard = new Keyboard(false);
                     MicroPhone = new MicroPhone();
                     Screen = new RetinaScreen(6.5, 250, outputChannel);
@@ -63,6 +57,11 @@ namespace LABSsimcorp {
                     Output.WriteLine("No such screen");
                     break;
             }
+        }
+
+        private static IBatteryFactory LoadBattery() {
+            string factornyName = MobileClassLibrary.Properties.Settings.Default.BatteryFactory;
+            return Assembly.GetExecutingAssembly().CreateInstance(factornyName) as IBatteryFactory;
         }
 
         private void ImportingOldContacts() {

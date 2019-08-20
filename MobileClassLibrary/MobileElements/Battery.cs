@@ -2,7 +2,7 @@
 using System.Threading;
 
 namespace LABSsimcorp {
-    public abstract class Battery {
+    public abstract class Battery : IBattery {
 
         protected static object charging = new object();
 

@@ -39,12 +39,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BatteryFactory.cs" />
+    <Compile Include="IBatteryFactory.cs" />
     <Compile Include="IStorage.cs" />
     <Compile Include="MobileElements\Battery.cs" />
     <Compile Include="MobileElements\ColorfullScreen.cs" />
     <Compile Include="FilterCheckBox.cs" />
     <Compile Include="FilterValueDTO.cs" />
     <Compile Include="MobileElements\Headphones.cs" />
+    <Compile Include="MobileElements\IBattery.cs" />
     <Compile Include="MobileElements\IBluetoothConnect.cs" />
     <Compile Include="MobileElements\IOutput.cs" />
     <Compile Include="MobileElements\IPlayback .cs" />
@@ -64,6 +67,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MobileElements\RetinaScreen.cs" />
     <Compile Include="MobileElements\ScreenBase.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="SMSProvider.cs" />
     <Compile Include="MobileElements\Speakers.cs" />
     <Compile Include="MobileElements\TouchKeyboard.cs" />
@@ -72,6 +80,13 @@
     <Compile Include="TaskMessageInisiator.cs" />
     <Compile Include="ThreadBattery.cs" />
     <Compile Include="ThreadMessageInisiator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

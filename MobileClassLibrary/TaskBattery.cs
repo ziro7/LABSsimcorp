@@ -22,7 +22,7 @@ namespace LABSsimcorp {
         public override void Charge() {
 
             if (Task.CurrentId == chargeTask.Id) {
-                // Lock the charging as long as IsCharing is true - checks every sec.
+                
                 lock (charging) {
                     while (IsCharging) {
                         PercentageCharged = PercentageCharged + 1;
@@ -41,7 +41,7 @@ namespace LABSsimcorp {
         public override void Discharge() {
 
             if (Task.CurrentId == dischargeTask.Id) {
-                // Locking the thread while not charging.
+                
                 lock (charging) {
                     while (!IsCharging) {
                         PercentageCharged = PercentageCharged - 1;
