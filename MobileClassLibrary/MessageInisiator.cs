@@ -6,7 +6,7 @@ using System.Threading;
 using System.Timers;
 
 namespace LABSsimcorp {
-    public abstract class MessageInisiator {
+    public abstract class MessageInisiator : IMessageInisiator {
 
         public System.Timers.Timer myTimer;
         public MobilePhone PhoneToMessage { get; set; }

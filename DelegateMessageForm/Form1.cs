@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
 using LABSsimcorp;
@@ -40,9 +41,14 @@ namespace DelegateMessageForm {
             output = new ListViewOutput(MessageListView);
             var smsStorage = new MessageStorage();
             phone = new MobilePhone(Model.Iphone10, output, smsStorage);
-            //smsInitiator = new ThreadMessageInisiator(phone);
-            smsInitiator = new TaskMessageInisiator(phone);
+            IMessageInisiatorFactory smsInisiatorFactory = LoadMessageInisiator();
+            smsInitiator = (MessageInisiator)smsInisiatorFactory.CreateMessageInisiator(phone);
             filterDictionary = new Dictionary<FilterCheckBox, bool>();
+        }
+
+        private static IMessageInisiatorFactory LoadMessageInisiator() {
+            string factornyName = Properties.Settings.Default.MessageInisiatorFactory;
+            return Assembly.GetAssembly(typeof(MessageInisiator)).CreateInstance(factornyName) as IMessageInisiatorFactory;
         }
 
         private void CreateFilterDictionary() {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using LABSsimcorp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MobileClassLibrary.UnitTest;
+using DelegateMessageForm.UnitTest;
 
-namespace MobileClassLibrary.UnitTests {
+namespace DelegateMessageForm.UnitTests {
 
     [TestClass]
     public class MobilePhoneTests {

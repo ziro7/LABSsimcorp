@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using LABSsimcorp;
 
-namespace MobileClassLibrary.UnitTests {
+namespace DelegateMessageForm.UnitTests {
     class FakeDelegateMessageForm {
         public Dictionary<FilterCheckBox, bool> FilterDict { get; set; }
 

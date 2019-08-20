@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using LABSsimcorp;
 
-namespace MobileClassLibrary.UnitTest {
+namespace DelegateMessageForm.UnitTest {
     class FakeOutput : IOutput {
         public string WriteText { get; set; }
         public string WriteLineText { get; set; }

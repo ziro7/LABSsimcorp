@@ -5,5 +5,8 @@
     <Setting Name="BatteryFactory" Type="System.String" Scope="User">
       <Value Profile="(Default)">LABSsimcorp.BatteryFactory</Value>
     </Setting>
+    <Setting Name="MessageInisiatorFactory" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LABSsimcorp.MessageInisiatorThreadFactory</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

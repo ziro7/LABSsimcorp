@@ -41,7 +41,11 @@
   <ItemGroup>
     <Compile Include="BatteryFactory.cs" />
     <Compile Include="IBatteryFactory.cs" />
+    <Compile Include="IMessageInisiator.cs" />
+    <Compile Include="IMessageInisiatorFactory.cs" />
     <Compile Include="IStorage.cs" />
+    <Compile Include="MessageInisiatorTaskFactory.cs" />
+    <Compile Include="MessageInisiatorThreadFactory.cs" />
     <Compile Include="MobileElements\Battery.cs" />
     <Compile Include="MobileElements\ColorfullScreen.cs" />
     <Compile Include="FilterCheckBox.cs" />

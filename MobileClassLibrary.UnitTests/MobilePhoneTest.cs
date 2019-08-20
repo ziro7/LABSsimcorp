@@ -1,7 +1,7 @@
 ﻿using LABSsimcorp;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace MobileClassLibrary.UnitTest {
+namespace DelegateMessageForm.UnitTest {
     [TestClass]
     public class MobilPhoneTest {
         [TestMethod]

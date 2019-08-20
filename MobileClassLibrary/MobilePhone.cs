@@ -60,7 +60,7 @@ namespace LABSsimcorp {
         }
 
         private static IBatteryFactory LoadBattery() {
-            string factornyName = MobileClassLibrary.Properties.Settings.Default.BatteryFactory;
+            string factornyName = DelegateMessageForm.Properties.Settings.Default.BatteryFactory;
             return Assembly.GetExecutingAssembly().CreateInstance(factornyName) as IBatteryFactory;
         }
 

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MobileClassLibrary.Properties {
+namespace DelegateMessageForm.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -32,6 +32,18 @@ namespace MobileClassLibrary.Properties {
             }
             set {
                 this["BatteryFactory"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("LABSsimcorp.MessageInisiatorThreadFactory")]
+        public string MessageInisiatorFactory {
+            get {
+                return ((string)(this["MessageInisiatorFactory"]));
+            }
+            set {
+                this["MessageInisiatorFactory"] = value;
             }
         }
     }
