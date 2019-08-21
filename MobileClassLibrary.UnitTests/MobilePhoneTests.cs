@@ -30,8 +30,8 @@ namespace DelegateMessageForm.UnitTests {
             //act
             mobile.ChangeFormat(OutputFormat.FormatToUpper);
 
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(jacob, "testMessage from Jacob", DateTime.Now)));
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(thomas, "testMessage from Thomas", DateTime.Now)));
+            mobile.Messages.Add(new Message(jacob, "testMessage from Jacob", DateTime.Now));
+            mobile.Messages.Add(new Message(thomas, "testMessage from Thomas", DateTime.Now));
             mobile.ViewMessages(fakeForm.FilterDict, filterValueDTO);
 
             //assert
@@ -64,8 +64,8 @@ namespace DelegateMessageForm.UnitTests {
 
             //act
             mobile.ChangeFormat(OutputFormat.FormatToUpper);
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(jacob, "testMessage from Jacob", DateTime.Now)));
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(thomas, "testMessage from Thomas", DateTime.Now)));
+            mobile.Messages.Add(new Message(jacob, "testMessage from Jacob", DateTime.Now));
+            mobile.Messages.Add(new Message(thomas, "testMessage from Thomas", DateTime.Now));
             mobile.ViewMessages(fakeForm.FilterDict, filterValueDTO);
 
             //assert
@@ -99,8 +99,8 @@ namespace DelegateMessageForm.UnitTests {
 
             //act
             mobile.ChangeFormat(OutputFormat.FormatToUpper);
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(jacob, "testMessage from Jacob", DateTime.Now)));
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(thomas, "testMessage from Thomas", DateTime.Now.Add(new TimeSpan ( 3,0,0)))));
+            mobile.Messages.Add(new Message(jacob, "testMessage from Jacob", DateTime.Now));
+            mobile.Messages.Add(new Message(thomas, "testMessage from Thomas", DateTime.Now.Add(new TimeSpan ( 3,0,0))));
             mobile.ViewMessages(fakeForm.FilterDict, filterValueDTO);
 
             //assert
@@ -133,13 +133,13 @@ namespace DelegateMessageForm.UnitTests {
 
             //act
             mobile.ChangeFormat(OutputFormat.FormatToUpper);
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(jacob, "testMessage3 from Jacob", DateTime.Now)));
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(thomas, "testMessage3 from Thomas", DateTime.Now.Add(new TimeSpan(0, 1, 0)))));
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(jacob, "testMessage from Jacob", DateTime.Now.Add(new TimeSpan(0, 2, 0)))));
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(thomas, "testMessage from Thomas", DateTime.Now.Add(new TimeSpan(0, 3, 0)))));
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(thomas, "testMessage from Thomas", DateTime.Now.Add(new TimeSpan(0, 4, 0)))));
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(thomas, "testMessage from Thomas", DateTime.Now.Add(new TimeSpan(1, 1, 0)))));
-            inisiator.OnElapsedHandler(this, new MessageEventArgs(new Message(jacob, "testMessage3 from Jacob", DateTime.Now.Add(new TimeSpan(1, 1, 0)))));
+            mobile.Messages.Add(new Message(jacob, "testMessage3 from Jacob", DateTime.Now));
+            mobile.Messages.Add(new Message(thomas, "testMessage3 from Thomas", DateTime.Now.Add(new TimeSpan(0, 1, 0))));
+            mobile.Messages.Add(new Message(jacob, "testMessage from Jacob", DateTime.Now.Add(new TimeSpan(0, 2, 0))));
+            mobile.Messages.Add(new Message(thomas, "testMessage from Thomas", DateTime.Now.Add(new TimeSpan(0, 3, 0))));
+            mobile.Messages.Add(new Message(thomas, "testMessage from Thomas", DateTime.Now.Add(new TimeSpan(0, 4, 0))));
+            mobile.Messages.Add(new Message(thomas, "testMessage from Thomas", DateTime.Now.Add(new TimeSpan(1, 1, 0))));
+            mobile.Messages.Add(new Message(jacob, "testMessage3 from Jacob", DateTime.Now.Add(new TimeSpan(1, 1, 0))));
             mobile.ViewMessages(fakeForm.FilterDict, filterValueDTO);
 
             //assert
