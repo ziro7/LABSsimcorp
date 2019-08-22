@@ -7,8 +7,20 @@ namespace LABSsimcorp {
         Thread dischargeThread;
         Thread chargeThread;
 
-        public ThreadBattery(double size) 
-            : base (size){
+        public Thread DischargeThread
+        {
+            get {return dischargeThread;}
+            set {dischargeThread = value;}
+        }
+
+        public Thread ChargeThread
+        {
+            get {return chargeThread;}
+            set {chargeThread = value;}
+        }
+
+        public ThreadBattery(double size,int percentageCharged = 90) 
+            : base (size, percentageCharged){
             dischargeThread = new Thread(new ThreadStart(Discharge));
             dischargeThread.Start();
             chargeThread = new Thread(new ThreadStart(Charge));
@@ -20,7 +32,7 @@ namespace LABSsimcorp {
             if (Thread.CurrentThread == chargeThread) {
                 
                 lock (charging) {
-                    while (IsCharging) {
+                    while (IsCharging && PercentageCharged < 100) {
                         PercentageCharged = PercentageCharged + 1;
                         OnBatteryChanged(1);
                         Thread.Sleep(1000);
@@ -37,7 +49,7 @@ namespace LABSsimcorp {
             if (Thread.CurrentThread == dischargeThread) {
                 
                 lock (charging) {
-                    while (!IsCharging) {
+                    while (!IsCharging && PercentageCharged > 0) {
                         PercentageCharged = PercentageCharged - 1;
                         OnBatteryChanged(-1);
                         Thread.Sleep(1000);

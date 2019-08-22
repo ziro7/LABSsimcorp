@@ -7,8 +7,20 @@ namespace LABSsimcorp {
         Task dischargeTask;
         Task chargeTask;
 
-        public TaskBattery(double size) 
-            : base (size){
+        public Task DischargeThread
+        {
+            get { return dischargeTask; }
+            set { dischargeTask = value; }
+        }
+
+        public Task ChargeThread
+        {
+            get { return chargeTask; }
+            set { chargeTask = value; }
+        }
+
+        public TaskBattery(double size, int percentageCharged=90) 
+            : base (size, percentageCharged){
             dischargeTask = new Task(() => {
                 Discharge();
             });
@@ -24,7 +36,7 @@ namespace LABSsimcorp {
             if (Task.CurrentId == chargeTask.Id) {
                 
                 lock (charging) {
-                    while (IsCharging) {
+                    while (IsCharging && PercentageCharged<100) {
                         PercentageCharged = PercentageCharged + 1;
                         OnBatteryChanged(1);
                         chargeTask.Wait(1000);
@@ -43,7 +55,7 @@ namespace LABSsimcorp {
             if (Task.CurrentId == dischargeTask.Id) {
                 
                 lock (charging) {
-                    while (!IsCharging) {
+                    while (!IsCharging && PercentageCharged>0) {
                         PercentageCharged = PercentageCharged - 1;
                         OnBatteryChanged(-1);
                         dischargeTask.Wait(1000);

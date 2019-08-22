@@ -10,10 +10,10 @@ namespace LABSsimcorp {
         public bool IsCharging { get; set; }
         public int PercentageCharged { get; set; }
 
-        protected Battery(double size) {
+        protected Battery(double size, int percentageCharged = 90) {
             Size = size;
             IsCharging = false;
-            PercentageCharged = 90;
+            PercentageCharged = percentageCharged;
         }
 
         public abstract void Charge();
