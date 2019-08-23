@@ -1,15 +1,21 @@
-﻿namespace LABSsimcorp {
+﻿using System.Collections.Generic;
+
+namespace LABSsimcorp {
     public class Contact {
 
         public int ContactId { get; set; }
         public string Name { get; set; }
-        public int WorkPhoneNumber { get; set; }
-        public int HomePhoneNumber { get; set; } //default 0 if not set in constructor
+        public int MainPhoneNumber { get; set; }
+        public List<int> AdditionalPhoneNumbers { get; set; }
 
-        public Contact(int userId, string name, int phoneNumber, int homePhoneNumber = 0) {
+        public Contact(int userId, string name, int phoneNumber, params int[] homePhoneNumber) {
             ContactId = userId;
             Name = name;
-            WorkPhoneNumber = phoneNumber;
+            MainPhoneNumber = phoneNumber;
+            AdditionalPhoneNumbers = new List<int>();
+            foreach (int number in homePhoneNumber) {
+                AdditionalPhoneNumbers.Add(number);
+            }
         }
     }
 }
