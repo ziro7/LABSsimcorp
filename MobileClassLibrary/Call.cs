@@ -8,7 +8,6 @@ namespace LABSsimcorp {
         private int contactNumber;
         public Contact Contact { get; set; }
         public DateTime CallTime { get; set; }
-        public bool IsIncommingCall { get; set; }
 
         public int ContactNumber
         {
@@ -18,36 +17,19 @@ namespace LABSsimcorp {
                 foreach (int number in Contact.AdditionalPhoneNumbers) {
                     allowedNumbers.Add(number);
                 }
-
-                if (allowedNumbers.Contains(contactNumber)) {
-                    contactNumber = value;
-                } else {
-                    Contact.AdditionalPhoneNumbers.Add(contactNumber);
-                    contactNumber = value;
-                }
+                if (!allowedNumbers.Contains(contactNumber)) {
+                    Contact.AdditionalPhoneNumbers.Add(value);
+                } 
+                contactNumber = value;
             }
         }
 
-        public Call(Contact contact, int phoneNumber, DateTime callTime, bool isIncomming) {
+        public Call(Contact contact, int phoneNumber, DateTime callTime) {
             Contact = contact;
             ContactNumber = phoneNumber;
             CallTime = callTime;
-            IsIncommingCall = isIncomming;
         }
 
-        public void AddIncommingCall(Contact contact, int contactNumber, DateTime callTime) {
-            Contact = contact;
-            ContactNumber = contactNumber;
-            CallTime = callTime;
-            IsIncommingCall = true;
-        }
-
-        public void AddOutgoingCall(Contact contact, int contactNumber, DateTime callTime) {
-            Contact = contact;
-            ContactNumber = contactNumber;
-            CallTime = callTime;
-            IsIncommingCall = false;
-        }
 
         public int CompareTo(object obj) {
             Call compareCall = (Call)obj;

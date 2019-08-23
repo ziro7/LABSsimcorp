@@ -15,6 +15,7 @@ namespace LABSsimcorp {
         public IOutput Output { get; set; }
         public List<Contact> ContactList { get; set; }
         internal SMSProvider SMSProviderInstance { get; set; }
+        public CallList CallList { get; set; }
         public ISMSStorage Messages;
 
         public MobilePhone(Model model, IOutput outputChannel, ISMSStorage smsStorage) {
@@ -26,6 +27,7 @@ namespace LABSsimcorp {
             //Battery = new TaskBattery(100);
             IBatteryFactory batteryFactory = LoadBattery(); //Loader den factory der er sat i settings - Pt. findes der kun 1.
             Battery = batteryFactory.CreateTaskBattery(); //Her vælges om man vælger den ene eller anden form for battery.
+            CallList = new CallList();
 
             switch (model) {
                 case Model.IPhone6:

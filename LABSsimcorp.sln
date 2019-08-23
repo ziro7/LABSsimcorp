@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MobileClassLibrary.UnitTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DelegateMessageForm", "DelegateMessageForm\DelegateMessageForm.csproj", "{FB7EC50B-A667-4491-A2DB-5303BCD243C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CallListDisplayForm", "CallListDisplayForm\CallListDisplayForm.csproj", "{B210FE55-4072-4628-A743-75FD1B49C799}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FB7EC50B-A667-4491-A2DB-5303BCD243C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB7EC50B-A667-4491-A2DB-5303BCD243C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB7EC50B-A667-4491-A2DB-5303BCD243C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B210FE55-4072-4628-A743-75FD1B49C799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B210FE55-4072-4628-A743-75FD1B49C799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B210FE55-4072-4628-A743-75FD1B49C799}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B210FE55-4072-4628-A743-75FD1B49C799}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

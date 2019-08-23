@@ -14,12 +14,12 @@ namespace MobileClassLibrary.UnitTests {
             Contact jacob = new Contact(1, "Jacob", 12341234, 234523456, 23452346);
             Contact anne = new Contact(1, "Anne", 23452345);
             Contact jesper = new Contact(1, "Jesper", 34563456, 34563457);
-            myCallList.AddIncommingCall(new Call(jacob,12341234,DateTime.Now.Add(new TimeSpan(-3, 0, 0)), true));
-            myCallList.AddIncommingCall(new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)), true));
-            myCallList.AddIncommingCall(new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)), true));
+            myCallList.AddIncommingCall(new Call(jacob,12341234,DateTime.Now.Add(new TimeSpan(-3, 0, 0))));
+            myCallList.AddIncommingCall(new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0))));
+            myCallList.AddIncommingCall(new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0))));
 
             //Act
-            var newCall = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(0, 0, 0)), true);
+            var newCall = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(0, 0, 0)));
             myCallList.AddIncommingCall(newCall);
 
             //Assert
@@ -34,12 +34,12 @@ namespace MobileClassLibrary.UnitTests {
             Contact jacob = new Contact(1, "Jacob", 12341234, 234523456, 23452346);
             Contact anne = new Contact(1, "Anne", 23452345);
             Contact jesper = new Contact(1, "Jesper", 34563456, 34563457);
-            myCallList.AddIncommingCall(new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)), true));
-            myCallList.AddIncommingCall(new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)), true));
-            myCallList.AddIncommingCall(new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)), true));
+            myCallList.AddIncommingCall(new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0))));
+            myCallList.AddIncommingCall(new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0))));
+            myCallList.AddIncommingCall(new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0))));
 
             //Act
-            var newCall = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-4, 0, 0)), true);
+            var newCall = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-4, 0, 0)));
             myCallList.AddIncommingCall(newCall);
 
             //Assert
@@ -54,12 +54,12 @@ namespace MobileClassLibrary.UnitTests {
             Contact jacob = new Contact(1, "Jacob", 12341234, 234523456, 23452346);
             Contact anne = new Contact(1, "Anne", 23452345);
             Contact jesper = new Contact(1, "Jesper", 34563456, 34563457);
-            myCallList.AddIncommingCall(new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)), true));
-            myCallList.AddIncommingCall(new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)), true));
-            myCallList.AddIncommingCall(new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)), true));
+            myCallList.AddIncommingCall(new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0))));
+            myCallList.AddIncommingCall(new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0))));
+            myCallList.AddIncommingCall(new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0))));
 
             //Act
-            var newCall = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-2, -1, 0)), true);
+            var newCall = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-2, -1, 0)));
             myCallList.AddIncommingCall(newCall);
 
             //Assert
@@ -74,11 +74,11 @@ namespace MobileClassLibrary.UnitTests {
             Contact jacob = new Contact(1, "Jacob", 12341234, 234523456, 23452346);
             Contact anne = new Contact(1, "Anne", 23452345);
             Contact jesper = new Contact(1, "Jesper", 34563456, 34563457);
-            var call1 = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)), true);
+            var call1 = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)));
             myCallList.AddIncommingCall(call1);
-            var call2 = new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)), true);
+            var call2 = new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)));
             myCallList.AddIncommingCall(call2);
-            var call3 = new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)), true);
+            var call3 = new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)));
             myCallList.AddIncommingCall(call3);
 
             //Act
@@ -96,11 +96,11 @@ namespace MobileClassLibrary.UnitTests {
             Contact jacob = new Contact(1, "Jacob", 12341234, 234523456, 23452346);
             Contact anne = new Contact(1, "Anne", 23452345);
             Contact jesper = new Contact(1, "Jesper", 34563456, 34563457);
-            var call1 = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)), true);
+            var call1 = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)));
             myCallList.AddIncommingCall(call1);
-            var call2 = new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)), true);
+            var call2 = new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)));
             myCallList.AddIncommingCall(call2);
-            var call3 = new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)), true);
+            var call3 = new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)));
             myCallList.AddIncommingCall(call3);
 
             //Act
@@ -118,11 +118,11 @@ namespace MobileClassLibrary.UnitTests {
             Contact jacob = new Contact(1, "Jacob", 12341234, 234523456, 23452346);
             Contact anne = new Contact(1, "Anne", 23452345);
             Contact jesper = new Contact(1, "Jesper", 34563456, 34563457);
-            var call1 = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)), true);
+            var call1 = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)));
             myCallList.AddIncommingCall(call1);
-            var call2 = new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)), true);
+            var call2 = new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)));
             myCallList.AddIncommingCall(call2);
-            var call3 = new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)), true);
+            var call3 = new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)));
             myCallList.AddIncommingCall(call3);
 
             //Act
@@ -140,12 +140,12 @@ namespace MobileClassLibrary.UnitTests {
             Contact jacob = new Contact(1, "Jacob", 12341234, 234523456, 23452346);
             Contact anne = new Contact(1, "Anne", 23452345);
             Contact jesper = new Contact(1, "Jesper", 34563456, 34563457);
-            myCallList.AddOutgoingCall(new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)), true));
-            myCallList.AddOutgoingCall(new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)), true));
-            myCallList.AddOutgoingCall(new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)), true));
+            myCallList.AddOutgoingCall(new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0))));
+            myCallList.AddOutgoingCall(new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0))));
+            myCallList.AddOutgoingCall(new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0))));
 
             //Act
-            var newCall = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(0, 0, 0)), true);
+            var newCall = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(0, 0, 0)));
             myCallList.AddOutgoingCall(newCall);
 
             //Assert
@@ -160,12 +160,12 @@ namespace MobileClassLibrary.UnitTests {
             Contact jacob = new Contact(1, "Jacob", 12341234, 234523456, 23452346);
             Contact anne = new Contact(1, "Anne", 23452345);
             Contact jesper = new Contact(1, "Jesper", 34563456, 34563457);
-            myCallList.AddOutgoingCall(new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)), true));
-            myCallList.AddOutgoingCall(new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)), true));
-            myCallList.AddOutgoingCall(new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)), true));
+            myCallList.AddOutgoingCall(new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0))));
+            myCallList.AddOutgoingCall(new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0))));
+            myCallList.AddOutgoingCall(new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0))));
 
             //Act
-            var newCall = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-4, 0, 0)), true);
+            var newCall = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-4, 0, 0)));
             myCallList.AddOutgoingCall(newCall);
 
             //Assert
@@ -180,12 +180,12 @@ namespace MobileClassLibrary.UnitTests {
             Contact jacob = new Contact(1, "Jacob", 12341234, 234523456, 23452346);
             Contact anne = new Contact(1, "Anne", 23452345);
             Contact jesper = new Contact(1, "Jesper", 34563456, 34563457);
-            myCallList.AddOutgoingCall(new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)), true));
-            myCallList.AddOutgoingCall(new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)), true));
-            myCallList.AddOutgoingCall(new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)), true));
+            myCallList.AddOutgoingCall(new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0))));
+            myCallList.AddOutgoingCall(new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0))));
+            myCallList.AddOutgoingCall(new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0))));
 
             //Act
-            var newCall = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-2, -1, 0)), true);
+            var newCall = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-2, -1, 0)));
             myCallList.AddOutgoingCall(newCall);
 
             //Assert
@@ -200,11 +200,11 @@ namespace MobileClassLibrary.UnitTests {
             Contact jacob = new Contact(1, "Jacob", 12341234, 234523456, 23452346);
             Contact anne = new Contact(1, "Anne", 23452345);
             Contact jesper = new Contact(1, "Jesper", 34563456, 34563457);
-            var call1 = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)), true);
+            var call1 = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)));
             myCallList.AddOutgoingCall(call1);
-            var call2 = new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)), true);
+            var call2 = new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)));
             myCallList.AddOutgoingCall(call2);
-            var call3 = new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)), true);
+            var call3 = new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)));
             myCallList.AddOutgoingCall(call3);
 
             //Act
@@ -222,11 +222,11 @@ namespace MobileClassLibrary.UnitTests {
             Contact jacob = new Contact(1, "Jacob", 12341234, 234523456, 23452346);
             Contact anne = new Contact(1, "Anne", 23452345);
             Contact jesper = new Contact(1, "Jesper", 34563456, 34563457);
-            var call1 = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)), true);
+            var call1 = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)));
             myCallList.AddOutgoingCall(call1);
-            var call2 = new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)), true);
+            var call2 = new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)));
             myCallList.AddOutgoingCall(call2);
-            var call3 = new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)), true);
+            var call3 = new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)));
             myCallList.AddOutgoingCall(call3);
 
             //Act
@@ -244,11 +244,11 @@ namespace MobileClassLibrary.UnitTests {
             Contact jacob = new Contact(1, "Jacob", 12341234, 234523456, 23452346);
             Contact anne = new Contact(1, "Anne", 23452345);
             Contact jesper = new Contact(1, "Jesper", 34563456, 34563457);
-            var call1 = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)), true);
+            var call1 = new Call(jacob, 12341234, DateTime.Now.Add(new TimeSpan(-3, 0, 0)));
             myCallList.AddOutgoingCall(call1);
-            var call2 = new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)), true);
+            var call2 = new Call(anne, 234523456, DateTime.Now.Add(new TimeSpan(-2, 0, 0)));
             myCallList.AddOutgoingCall(call2);
-            var call3 = new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)), true);
+            var call3 = new Call(jesper, 34563456, DateTime.Now.Add(new TimeSpan(-1, 0, 0)));
             myCallList.AddOutgoingCall(call3);
 
             //Act
