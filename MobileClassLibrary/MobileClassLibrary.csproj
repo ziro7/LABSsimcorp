@@ -40,6 +40,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BatteryFactory.cs" />
+    <Compile Include="Call.cs" />
+    <Compile Include="CallList.cs" />
     <Compile Include="IBatteryFactory.cs" />
     <Compile Include="IMessageInisiator.cs" />
     <Compile Include="IMessageInisiatorFactory.cs" />
