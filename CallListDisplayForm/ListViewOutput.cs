@@ -27,10 +27,12 @@ namespace CallListDisplayForm {
                 var user = call.Contact.Name;
                 var calltime = call.CallTime.ToLongTimeString();
                 var number = call.ContactNumber.ToString();
+                var consequtiveCallsAmount = call.AssociatedCalls.Count.ToString();
                 var item = new ListViewItem();
                 item.Text = user;
                 item.SubItems.Add(calltime);
                 item.SubItems.Add(number);
+                item.SubItems.Add(consequtiveCallsAmount);
                 CallListView.Items.Add(item);
             }
         }

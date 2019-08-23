@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace LABSsimcorp {
     public class CallList {
@@ -12,11 +9,16 @@ namespace LABSsimcorp {
         }
 
         public void AddIncommingCall(Call call) {
+            if (IsNewCallSameAsLatestIncommingCall(call)){ return; }
+
             incommingCallList.Add(call);
             incommingCallList.Sort();
         }
 
+
+
         public void AddOutgoingCall(Call call) {
+            if (IsNewCallSameAsLatestOutgoingCall(call)) { return; };
             outgoingCallList.Add(call);
             outgoingCallList.Sort();
         }
@@ -31,6 +33,22 @@ namespace LABSsimcorp {
             if (outgoingCallList.IndexOf(call) != -1) {
                 outgoingCallList.RemoveAt(outgoingCallList.IndexOf(call));
             }
+        }
+
+        private bool IsNewCallSameAsLatestIncommingCall(Call call) {
+            if(incommingCallList.Count>0 && call.Equals(incommingCallList[0])) {
+                incommingCallList[0].AssociatedCalls.Add(call);
+                return true;
+            }
+            return false;
+        }
+
+        private bool IsNewCallSameAsLatestOutgoingCall(Call call) {
+            if (outgoingCallList.Count > 0 && call.Equals(outgoingCallList[0])) {
+                outgoingCallList[0].AssociatedCalls.Add(call);
+                return true;
+            }
+            return false;
         }
     }
 }

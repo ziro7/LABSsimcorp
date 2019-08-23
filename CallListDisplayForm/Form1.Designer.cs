@@ -40,6 +40,7 @@
             this.Contact = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.CallTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.numberOfCalls = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // CallListView
@@ -47,7 +48,8 @@
             this.CallListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Contact,
             this.CallTime,
-            this.Number});
+            this.Number,
+            this.numberOfCalls});
             this.CallListView.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
             this.CallListView.Location = new System.Drawing.Point(24, 173);
@@ -193,6 +195,11 @@
             this.Number.Text = "Number";
             this.Number.Width = 102;
             // 
+            // numberOfCalls
+            // 
+            this.numberOfCalls.Text = "Number of calls";
+            this.numberOfCalls.Width = 119;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -237,6 +244,7 @@
         private System.Windows.Forms.ColumnHeader Contact;
         private System.Windows.Forms.ColumnHeader CallTime;
         private System.Windows.Forms.ColumnHeader Number;
+        private System.Windows.Forms.ColumnHeader numberOfCalls;
     }
 }
 
