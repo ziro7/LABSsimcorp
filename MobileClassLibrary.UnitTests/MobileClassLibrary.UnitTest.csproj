@@ -65,6 +65,7 @@
     <Compile Include="TaskBatteryTests.cs" />
     <Compile Include="ThreadBatteryTests.cs" />
     <Compile Include="CallListTests.cs" />
+    <Compile Include="CallTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DelegateMessageForm\DelegateMessageForm.csproj">
